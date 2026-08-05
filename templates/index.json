@@ -441,6 +441,39 @@
         "shadow_opacity": 0
       }
     },
+    "rich_text_YnjPM9": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_jeATe8": {
+          "type": "subheading",
+          "settings": {
+            "text": "+3,000 CLIENTS SATISFAITS"
+          }
+        },
+        "heading_bcApcW": {
+          "type": "heading",
+          "settings": {
+            "text": "NOS CLIENTS SATISFAITS",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_jeATe8",
+        "heading_bcApcW"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "logoscroll_qe6ejH": {
       "type": "logoscroll",
       "blocks": {
@@ -589,7 +622,7 @@
       ],
       "name": "Avis clients premium",
       "settings": {
-        "heading": "NOS CLIENTS SATISFAITS",
+        "heading": "",
         "heading_tag": "h3",
         "brand_text": "Trustpilot",
         "show_brand_star": true,
@@ -736,6 +769,7 @@
     "featured_collection_hNRc4X",
     "imagetextecta_qwPHKh",
     "raisonsimpl_XeteFM",
+    "rich_text_YnjPM9",
     "logoscroll_qe6ejH",
     "avisclients_q9K8az",
     "faq"
