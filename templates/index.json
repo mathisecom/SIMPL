@@ -344,35 +344,53 @@
         "message_HjatGW": {
           "type": "message",
           "settings": {
-            "icon": "🚚",
-            "text": "Livraison offerte dès 50 €",
+            "icon": "",
+            "text": "Moins de Frottements",
             "link": "",
             "open_new_tab": false
           }
         },
-        "message_KX7FdQ": {
+        "message_PVjjYG": {
           "type": "message",
           "settings": {
-            "icon": "↩",
-            "text": "Retours gratuits pendant 30 jours",
+            "icon": "",
+            "text": "Moins de Transpirations",
             "link": "",
             "open_new_tab": false
           }
         },
-        "message_pAXcdb": {
+        "message_GCRbKp": {
           "type": "message",
           "settings": {
-            "icon": "🔥",
-            "text": "Offre limitée : jusqu’à -30 %",
+            "icon": "",
+            "text": "Moins d'odeurs",
             "link": "",
             "open_new_tab": false
           }
         },
-        "message_yJ66B7": {
+        "message_3iczyq": {
           "type": "message",
           "settings": {
-            "icon": "★",
-            "text": "Plus de 3 500 clients satisfaits",
+            "icon": "",
+            "text": "Moins d’irritations",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "message_f4gekc": {
+          "type": "message",
+          "settings": {
+            "icon": "",
+            "text": "Moins d’humidité",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "message_fLxHxM": {
+          "type": "message",
+          "settings": {
+            "icon": "",
+            "text": "Moins de compression",
             "link": "",
             "open_new_tab": false
           }
@@ -380,15 +398,17 @@
       },
       "block_order": [
         "message_HjatGW",
-        "message_KX7FdQ",
-        "message_pAXcdb",
-        "message_yJ66B7"
+        "message_PVjjYG",
+        "message_GCRbKp",
+        "message_3iczyq",
+        "message_f4gekc",
+        "message_fLxHxM"
       ],
       "name": "Texte défilant",
       "settings": {
         "direction": "left",
         "speed_desktop": 24,
-        "speed_mobile": 18,
+        "speed_mobile": 20,
         "pause_on_hover": true,
         "accessibility_label": "Informations importantes",
         "separator": "",
@@ -403,14 +423,14 @@
         "height_desktop": 54,
         "height_mobile": 40,
         "item_gap_desktop": 40,
-        "item_gap_mobile": 24,
+        "item_gap_mobile": 12,
         "horizontal_padding": 24,
         "horizontal_padding_mobile": 12,
         "icon_gap": 8,
         "icon_gap_mobile": 6,
         "icon_size_desktop": 18,
         "icon_size_mobile": 15,
-        "background_color": "#FFDF5D",
+        "background_color": "#FFFAE6",
         "text_color": "#1B1B1B",
         "accent_color": "#1B1B1B",
         "border_color": "#111111",
