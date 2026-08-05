@@ -232,7 +232,7 @@
           "settings": {
             "icon": "shield",
             "title": "SATISFAIT OU REMBOURSÉ",
-            "text": "45 jours"
+            "text": "60 jours"
           }
         },
         "badge_c6YwYa": {
@@ -295,7 +295,7 @@
         "background": "#FFFFFF",
         "text_color": "#111111",
         "muted_color": "#555555",
-        "accent_color": "#1B3E78",
+        "accent_color": "#1B1B1B",
         "button_background": "#FFC62E",
         "button_text_color": "#111111",
         "badge_background": "#FFFFFF",
