@@ -60,10 +60,54 @@
         "background_opacity": 100,
         "background_blur_radius": 0
       }
+    },
+    "bannerpromo_kgphVw": {
+      "type": "bannerpromo",
+      "name": "Bannière promo solde",
+      "settings": {
+        "icon": "",
+        "prefix_text": "",
+        "highlight_text": "SOLDES D'ÉTÉ JUSQU'À -50 %",
+        "message": "",
+        "code_label": "",
+        "promo_code": "",
+        "button_label": "J'EN PROFITE !",
+        "button_link": "shopify://products/boxers-en-bambou-original-simpl",
+        "show_arrow": true,
+        "open_new_tab": false,
+        "sticky": false,
+        "close_button": false,
+        "enable_marquee_mobile": false,
+        "marquee_speed": 20,
+        "hide_message_mobile": false,
+        "hide_button_mobile": false,
+        "max_width": 1600,
+        "height_desktop": 42,
+        "height_mobile": 42,
+        "horizontal_padding": 24,
+        "content_gap": 14,
+        "content_gap_mobile": 10,
+        "font_size_desktop": 13,
+        "font_size_mobile": 12,
+        "font_weight": "700",
+        "background_color": "#FFDF5D",
+        "text_color": "#FFFFFF",
+        "accent_background": "#FFFFFF",
+        "accent_text_color": "#111111",
+        "button_background": "#1B1B1B",
+        "button_text_color": "#FFFFFF",
+        "border_color": "#111111",
+        "border_width": 0,
+        "highlight_radius": 2,
+        "code_radius": 8,
+        "button_radius": 40,
+        "z_index": 5
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "bannerpromo_kgphVw"
   ]
 }
