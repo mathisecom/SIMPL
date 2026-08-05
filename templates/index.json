@@ -1160,6 +1160,106 @@
         "accordion_background": "#ffffff",
         "accordion_text_color": ""
       }
+    },
+    "rich_text_gcnUGT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xfDkDd": {
+          "type": "heading",
+          "settings": {
+            "text": "Heading",
+            "heading_tag": "h3",
+            "text_color": "",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_xfDkDd"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "image_link_blocks_wpXt6k": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "item_F7hNQE": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_ezJdCB": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_r7C3dz": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_j3CgGL": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "item_F7hNQE",
+        "item_ezJdCB",
+        "item_r7C3dz",
+        "item_j3CgGL"
+      ],
+      "name": "Image link blocks",
+      "settings": {
+        "full_width": false,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
     }
   },
   "order": [
@@ -1176,6 +1276,8 @@
     "rich_text_YnjPM9",
     "logoscroll_qe6ejH",
     "avisclients_q9K8az",
-    "faq"
+    "faq",
+    "rich_text_gcnUGT",
+    "image_link_blocks_wpXt6k"
   ]
 }
