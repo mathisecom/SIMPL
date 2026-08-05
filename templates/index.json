@@ -224,6 +224,34 @@
         "lazy": true
       }
     },
+    "featured_collection_hNRc4X": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "",
+        "products": [
+          "boxers-en-bambou-original-simpl"
+        ],
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "Meilleures Ventes",
+        "content": "",
+        "link_url": "",
+        "link_text": "Découvrir",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
     "imagetextecta_qwPHKh": {
       "type": "imagetextecta",
       "blocks": {
@@ -620,6 +648,7 @@
     "slideshow_qXqhmV",
     "sectionchiffre_hV3JYc",
     "logoscroll_ip7zVK",
+    "featured_collection_hNRc4X",
     "imagetextecta_qwPHKh",
     "raisonsimpl_XeteFM",
     "avisclients_q9K8az",
