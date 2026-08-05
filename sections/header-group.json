@@ -78,7 +78,7 @@
         "sticky": false,
         "close_button": false,
         "enable_marquee_mobile": false,
-        "marquee_speed": 20,
+        "marquee_speed": 10,
         "hide_message_mobile": false,
         "hide_button_mobile": false,
         "max_width": 1600,
@@ -99,8 +99,8 @@
         "border_color": "#111111",
         "border_width": 0,
         "highlight_radius": 2,
-        "code_radius": 8,
-        "button_radius": 40,
+        "code_radius": 6,
+        "button_radius": 6,
         "z_index": 5
       }
     }
