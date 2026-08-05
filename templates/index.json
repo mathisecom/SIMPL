@@ -31,7 +31,7 @@
           "type": "stat",
           "settings": {
             "badge": "",
-            "prefix": "",
+            "prefix": "+",
             "value": "3,000",
             "suffix": "Clients Satisfaits",
             "title": "Noté 4,8/5",
@@ -48,7 +48,7 @@
             "badge": "",
             "prefix": "",
             "value": "180",
-            "suffix": "Jours",
+            "suffix": "Jours Garantie",
             "title": "Anti-trous",
             "text": "",
             "alignment": "center",
@@ -101,8 +101,8 @@
         "muted_color": "#333333",
         "accent_color": "#111111",
         "divider_color": "#c9c9c9",
-        "padding_top_desktop": 32,
-        "padding_bottom_desktop": 32,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0
       }
