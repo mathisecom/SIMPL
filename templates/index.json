@@ -205,9 +205,9 @@
         "card_width_desktop": 140,
         "card_width_mobile": 130,
         "heading_color": "#121212",
-        "layout_bg_color": "#FFFFFF",
+        "layout_bg_color": "#ffffff",
         "layout_border_color": "#121212",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "border_color": "#121212",
         "margin_top": 0,
         "margin_bottom": 0,
@@ -222,6 +222,91 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
+      }
+    },
+    "imagetextecta_qwPHKh": {
+      "type": "imagetextecta",
+      "blocks": {
+        "badge_eJgatf": {
+          "type": "badge",
+          "settings": {
+            "icon": "shield",
+            "title": "SATISFAIT OU REMBOURSÉ",
+            "text": "45 jours"
+          }
+        },
+        "badge_c6YwYa": {
+          "type": "badge",
+          "settings": {
+            "icon": "return",
+            "title": "RETOURS GRATUITS",
+            "text": "Sans conditions"
+          }
+        }
+      },
+      "block_order": [
+        "badge_eJgatf",
+        "badge_c6YwYa"
+      ],
+      "name": "Offre texte + image",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Prix clair et transparent",
+        "text": "<p>Nous pensons qu’un bon produit ne devrait jamais aller à l’encontre de vos valeurs. C’est pourquoi notre offre repose sur des engagements simples, utiles et transparents.</p>",
+        "button_label": "ESSAYEZ-LE DÈS AUJOURD’HUI, SANS RISQUE !",
+        "button_link": "",
+        "open_new_tab": false,
+        "show_arrow": false,
+        "image_side": "right",
+        "mobile_order": "content-first",
+        "image_ratio": "square",
+        "image_fit": "cover",
+        "image_position": "center center",
+        "custom_height_desktop": 540,
+        "custom_height_mobile": 380,
+        "content_width": 1400,
+        "media_width": 48,
+        "text_width": 560,
+        "gap_desktop": 72,
+        "gap_mobile": 32,
+        "vertical_alignment": "center",
+        "alignment": "left",
+        "mobile_alignment": "left",
+        "button_width": "full",
+        "button_full_mobile": true,
+        "button_uppercase": true,
+        "button_height": 52,
+        "button_text_size": 12,
+        "button_radius": 6,
+        "badges_desktop_columns": "2",
+        "badges_mobile_columns": "1",
+        "badge_padding": 8,
+        "badge_padding_mobile": 6,
+        "badge_title_size": 10,
+        "badge_title_size_mobile": 9,
+        "badge_text_size": 10,
+        "badge_text_size_mobile": 9,
+        "badge_radius": 4,
+        "heading_size_desktop": 32,
+        "heading_size_mobile": 26,
+        "heading_weight": "700",
+        "text_size_desktop": 15,
+        "text_size_mobile": 14,
+        "background": "#FFFFFF",
+        "text_color": "#111111",
+        "muted_color": "#555555",
+        "accent_color": "#1B3E78",
+        "button_background": "#FFC62E",
+        "button_text_color": "#111111",
+        "badge_background": "#FFFFFF",
+        "badge_border": "#E7E7E7",
+        "media_background": "#E8E8E8",
+        "image_radius": 28,
+        "shadow_opacity": 4,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 28,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 36
       }
     },
     "raisonsimpl_XeteFM": {
@@ -535,6 +620,7 @@
     "slideshow_qXqhmV",
     "sectionchiffre_hV3JYc",
     "logoscroll_ip7zVK",
+    "imagetextecta_qwPHKh",
     "raisonsimpl_XeteFM",
     "avisclients_q9K8az",
     "faq"
