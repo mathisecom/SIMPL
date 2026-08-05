@@ -325,7 +325,7 @@
         "text_color": "#111111",
         "muted_color": "#555555",
         "accent_color": "#1b1b1b",
-        "button_background": "#FFDF5D",
+        "button_background": "#ffdf5d",
         "button_text_color": "#111111",
         "badge_background": "#ffffff",
         "badge_border": "#e7e7e7",
@@ -336,6 +336,126 @@
         "padding_bottom_desktop": 28,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 36
+      }
+    },
+    "sectioncomparatif_hmiWXR": {
+      "type": "sectioncomparatif",
+      "blocks": {
+        "comparison_row_n3jYnQ": {
+          "type": "comparison_row",
+          "settings": {
+            "competitor_text": "Retient les mauvaises odeurs",
+            "competitor_icon": "cross",
+            "product_text": "Élimine les mauvaises odeurs",
+            "product_icon": "check"
+          }
+        },
+        "comparison_row_DJGPYw": {
+          "type": "comparison_row",
+          "settings": {
+            "competitor_text": "Inconfortable au quotidien",
+            "competitor_icon": "cross",
+            "product_text": "Confortable toute la journée",
+            "product_icon": "check"
+          }
+        },
+        "comparison_row_nwe8dW": {
+          "type": "comparison_row",
+          "settings": {
+            "competitor_text": "S’use rapidement",
+            "competitor_icon": "cross",
+            "product_text": "Matière résistante et durable",
+            "product_icon": "check"
+          }
+        },
+        "comparison_row_9ETiEK": {
+          "type": "comparison_row",
+          "settings": {
+            "competitor_text": "Garde l’humidité",
+            "competitor_icon": "cross",
+            "product_text": "Respirant et agréable",
+            "product_icon": "check"
+          }
+        }
+      },
+      "block_order": [
+        "comparison_row_n3jYnQ",
+        "comparison_row_DJGPYw",
+        "comparison_row_nwe8dW",
+        "comparison_row_9ETiEK"
+      ],
+      "name": "Comparatif produit",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Pourquoi SIMPL est votre meilleure option ?",
+        "intro": "",
+        "title_size_desktop": 34,
+        "title_size_mobile": 24,
+        "competitor_name": "BOXER CLASSIQUE",
+        "competitor_subtitle": "",
+        "competitor_badge": "CLASSIQUE",
+        "competitor_image_position": "center center",
+        "product_name": "BOXER SIMPL",
+        "product_subtitle": "",
+        "product_badge": "RECOMMANDÉ",
+        "product_image_position": "center center",
+        "image_fit": "contain",
+        "image_height_desktop": 300,
+        "image_height_mobile": 150,
+        "image_radius": 12,
+        "image_border_width": 0,
+        "vs_text": "VS",
+        "vs_size_desktop": 64,
+        "vs_size_mobile": 46,
+        "vs_font_size_desktop": 18,
+        "vs_font_size_mobile": 13,
+        "content_width": 1300,
+        "visuals_width": 1000,
+        "table_width": 900,
+        "visual_gap_desktop": 34,
+        "visual_gap_mobile": 10,
+        "visuals_spacing_top": 48,
+        "visuals_spacing_top_mobile": 28,
+        "table_spacing_top": 44,
+        "table_spacing_top_mobile": 48,
+        "row_height_desktop": 72,
+        "row_height_mobile": 64,
+        "row_gap_desktop": 8,
+        "row_gap_mobile": 6,
+        "row_padding_vertical_desktop": 14,
+        "row_padding_horizontal_desktop": 18,
+        "row_padding_vertical_mobile": 10,
+        "row_padding_horizontal_mobile": 8,
+        "row_border_width": 1,
+        "cell_radius": 4,
+        "row_text_size_desktop": 16,
+        "row_text_size_mobile": 12,
+        "icon_size_desktop": 24,
+        "icon_size_mobile": 20,
+        "name_size_desktop": 20,
+        "name_size_mobile": 15,
+        "button_label": "Découvrir notre produit",
+        "button_link": "",
+        "show_arrow": true,
+        "open_new_tab": false,
+        "button_full_mobile": true,
+        "button_text_size": 14,
+        "button_radius": 6,
+        "button_background": "#111111",
+        "button_text_color": "#FFFFFF",
+        "background": "#FFFFFF",
+        "text_color": "#111111",
+        "muted_color": "#5A5A5A",
+        "card_background": "#FFFFFF",
+        "border_color": "#244236",
+        "product_color": "#FFDF5D",
+        "competitor_color": "#B7B7B7",
+        "vs_background": "#1B1B1B",
+        "vs_text_color": "#FFFFFF",
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48,
+        "padding_top_mobile": 16,
+        "padding_bottom_mobile": 16
       }
     },
     "raisonsimpl_XeteFM": {
@@ -768,6 +888,7 @@
     "logoscroll_ip7zVK",
     "featured_collection_hNRc4X",
     "imagetextecta_qwPHKh",
+    "sectioncomparatif_hmiWXR",
     "raisonsimpl_XeteFM",
     "rich_text_YnjPM9",
     "logoscroll_qe6ejH",
