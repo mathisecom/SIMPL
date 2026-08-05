@@ -12,6 +12,12 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "liquid_FFq7jK": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -53,15 +59,45 @@
             "payment_button_background": "",
             "payment_button_text_color": ""
           }
+        },
+        "liquid_bK79rJ": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
+        "collapsible_text_GLCT6q": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Title",
+            "content": "<p>Share some content to your customers about your products.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_HEhPLC": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Title",
+            "content": "<p>Share some content to your customers about your products.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
+        "liquid_FFq7jK",
         "title",
         "badges",
         "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "liquid_bK79rJ",
+        "collapsible_text_GLCT6q",
+        "collapsible_text_HEhPLC"
       ],
       "settings": {
         "full_width": true,
