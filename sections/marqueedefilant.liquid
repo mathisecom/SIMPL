@@ -1,0 +1,655 @@
+{% liquid
+  assign marquee_id = 'marquee-' | append: section.id
+%}
+
+<section
+  id="{{ marquee_id }}"
+  class="
+    marquee-text
+    marquee-text--{{ section.settings.direction }}
+    {% if section.settings.pause_on_hover %}marquee-text--pause-hover{% endif %}
+    {% if section.settings.uppercase %}marquee-text--uppercase{% endif %}
+  "
+  style="
+    --mq-background: {{ section.settings.background_color }};
+    --mq-text: {{ section.settings.text_color }};
+    --mq-accent: {{ section.settings.accent_color }};
+    --mq-border: {{ section.settings.border_color }};
+    --mq-height-desktop: {{ section.settings.height_desktop }}px;
+    --mq-height-mobile: {{ section.settings.height_mobile }}px;
+    --mq-font-desktop: {{ section.settings.font_size_desktop }}px;
+    --mq-font-mobile: {{ section.settings.font_size_mobile }}px;
+    --mq-speed-desktop: {{ section.settings.speed_desktop }}s;
+    --mq-speed-mobile: {{ section.settings.speed_mobile }}s;
+    --mq-item-gap-desktop: {{ section.settings.item_gap_desktop }}px;
+    --mq-item-gap-mobile: {{ section.settings.item_gap_mobile }}px;
+    --mq-letter-spacing: {{ section.settings.letter_spacing | divided_by: 100.0 }}em;
+    --mq-padding-x: {{ section.settings.horizontal_padding }}px;
+  "
+  aria-label="{{ section.settings.accessibility_label | escape }}"
+>
+  <div class="marquee-text__viewport">
+    <div class="marquee-text__track">
+      <div class="marquee-text__group" role="list">
+        {% for block in section.blocks %}
+          <div class="marquee-text__item" role="listitem" {{ block.shopify_attributes }}>
+            {% if block.settings.icon != blank %}
+              <span class="marquee-text__icon" aria-hidden="true">
+                {{ block.settings.icon | escape }}
+              </span>
+            {% endif %}
+
+            {% if block.settings.link != blank %}
+              <a
+                class="marquee-text__link"
+                href="{{ block.settings.link }}"
+                {% if block.settings.open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+              >
+                {{ block.settings.text | escape }}
+              </a>
+            {% else %}
+              <span class="marquee-text__label">
+                {{ block.settings.text | escape }}
+              </span>
+            {% endif %}
+
+            {% unless forloop.last and section.settings.hide_last_separator %}
+              <span class="marquee-text__separator" aria-hidden="true">
+                {{ section.settings.separator | escape }}
+              </span>
+            {% endunless %}
+          </div>
+        {% else %}
+          <div class="marquee-text__item" role="listitem">
+            <span class="marquee-text__label">Ajoutez des messages dans l’éditeur Shopify</span>
+            <span class="marquee-text__separator" aria-hidden="true">
+              {{ section.settings.separator | escape }}
+            </span>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="marquee-text__group marquee-text__group--duplicate" aria-hidden="true">
+        {% for block in section.blocks %}
+          <div class="marquee-text__item">
+            {% if block.settings.icon != blank %}
+              <span class="marquee-text__icon">
+                {{ block.settings.icon | escape }}
+              </span>
+            {% endif %}
+
+            <span class="marquee-text__label">
+              {{ block.settings.text | escape }}
+            </span>
+
+            {% unless forloop.last and section.settings.hide_last_separator %}
+              <span class="marquee-text__separator">
+                {{ section.settings.separator | escape }}
+              </span>
+            {% endunless %}
+          </div>
+        {% else %}
+          <div class="marquee-text__item">
+            <span class="marquee-text__label">Ajoutez des messages dans l’éditeur Shopify</span>
+            <span class="marquee-text__separator">
+              {{ section.settings.separator | escape }}
+            </span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #{{ marquee_id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-top: {{ section.settings.border_top_width }}px solid var(--mq-border);
+    border-bottom: {{ section.settings.border_bottom_width }}px solid var(--mq-border);
+    background: var(--mq-background);
+    color: var(--mq-text);
+  }
+
+  #{{ marquee_id }} *,
+  #{{ marquee_id }} *::before,
+  #{{ marquee_id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #{{ marquee_id }} .marquee-text__viewport {
+    display: flex;
+    min-height: var(--mq-height-desktop);
+    align-items: center;
+    overflow: hidden;
+  }
+
+  #{{ marquee_id }} .marquee-text__track {
+    display: flex;
+    width: max-content;
+    min-width: max-content;
+    align-items: center;
+    animation: marquee-scroll-{{ section.id }} var(--mq-speed-desktop) linear infinite;
+    will-change: transform;
+  }
+
+  #{{ marquee_id }}.marquee-text--right .marquee-text__track {
+    animation-direction: reverse;
+  }
+
+  #{{ marquee_id }} .marquee-text__group {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: var(--mq-item-gap-desktop);
+    padding-right: var(--mq-item-gap-desktop);
+    padding-left: var(--mq-padding-x);
+  }
+
+  #{{ marquee_id }} .marquee-text__group--duplicate {
+    padding-left: 0;
+  }
+
+  #{{ marquee_id }} .marquee-text__item {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: {{ section.settings.icon_gap }}px;
+    white-space: nowrap;
+  }
+
+  #{{ marquee_id }} .marquee-text__icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    color: var(--mq-accent);
+    font-size: {{ section.settings.icon_size_desktop }}px;
+    line-height: 1;
+  }
+
+  #{{ marquee_id }} .marquee-text__label,
+  #{{ marquee_id }} .marquee-text__link {
+    color: var(--mq-text);
+    font-size: var(--mq-font-desktop);
+    font-weight: {{ section.settings.font_weight }};
+    letter-spacing: var(--mq-letter-spacing);
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  #{{ marquee_id }}.marquee-text--uppercase .marquee-text__label,
+  #{{ marquee_id }}.marquee-text--uppercase .marquee-text__link {
+    text-transform: uppercase;
+  }
+
+  #{{ marquee_id }} .marquee-text__separator {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--mq-item-gap-desktop);
+    color: var(--mq-accent);
+    font-size: {{ section.settings.separator_size_desktop }}px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  #{{ marquee_id }}.marquee-text--pause-hover:hover .marquee-text__track {
+    animation-play-state: paused;
+  }
+
+  @media (hover: hover) {
+    #{{ marquee_id }} .marquee-text__link:hover {
+      opacity: 0.72;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+  }
+
+  @keyframes marquee-scroll-{{ section.id }} {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #{{ marquee_id }} .marquee-text__viewport {
+      min-height: var(--mq-height-mobile);
+    }
+
+    #{{ marquee_id }} .marquee-text__track {
+      animation-duration: var(--mq-speed-mobile);
+    }
+
+    #{{ marquee_id }} .marquee-text__group {
+      gap: var(--mq-item-gap-mobile);
+      padding-right: var(--mq-item-gap-mobile);
+      padding-left: {{ section.settings.horizontal_padding_mobile }}px;
+    }
+
+    #{{ marquee_id }} .marquee-text__group--duplicate {
+      padding-left: 0;
+    }
+
+    #{{ marquee_id }} .marquee-text__item {
+      gap: {{ section.settings.icon_gap_mobile }}px;
+    }
+
+    #{{ marquee_id }} .marquee-text__label,
+    #{{ marquee_id }} .marquee-text__link {
+      font-size: var(--mq-font-mobile);
+    }
+
+    #{{ marquee_id }} .marquee-text__icon {
+      font-size: {{ section.settings.icon_size_mobile }}px;
+    }
+
+    #{{ marquee_id }} .marquee-text__separator {
+      margin-left: var(--mq-item-gap-mobile);
+      font-size: {{ section.settings.separator_size_mobile }}px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #{{ marquee_id }} .marquee-text__viewport {
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    #{{ marquee_id }} .marquee-text__track {
+      animation: none;
+      transform: none;
+      will-change: auto;
+    }
+
+    #{{ marquee_id }} .marquee-text__group--duplicate {
+      display: none;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Texte défilant",
+  "tag": "section",
+  "class": "section-marquee-text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Défilement"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Sens du défilement",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Vers la gauche"
+        },
+        {
+          "value": "right",
+          "label": "Vers la droite"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "speed_desktop",
+      "label": "Durée du défilement sur ordinateur",
+      "min": 8,
+      "max": 60,
+      "step": 2,
+      "unit": "s",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "speed_mobile",
+      "label": "Durée du défilement sur mobile",
+      "min": 8,
+      "max": 60,
+      "step": 2,
+      "unit": "s",
+      "default": 18
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Mettre en pause au survol",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Description pour l’accessibilité",
+      "default": "Informations importantes"
+    },
+    {
+      "type": "header",
+      "content": "Texte et séparateur"
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Séparateur",
+      "default": "✦"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_last_separator",
+      "label": "Masquer le dernier séparateur de chaque série",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase",
+      "label": "Afficher les textes en majuscules",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Graisse du texte",
+      "default": "700",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normale"
+        },
+        {
+          "value": "500",
+          "label": "Moyenne"
+        },
+        {
+          "value": "600",
+          "label": "Semi-grasse"
+        },
+        {
+          "value": "700",
+          "label": "Grasse"
+        },
+        {
+          "value": "800",
+          "label": "Très grasse"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "font_size_desktop",
+      "label": "Taille du texte sur ordinateur",
+      "min": 11,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Taille du texte sur mobile",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Espacement des lettres",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "%",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "separator_size_desktop",
+      "label": "Taille du séparateur sur ordinateur",
+      "min": 10,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "separator_size_mobile",
+      "label": "Taille du séparateur sur mobile",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Dimensions"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "label": "Hauteur minimale sur ordinateur",
+      "min": 36,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "label": "Hauteur minimale sur mobile",
+      "min": 32,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "item_gap_desktop",
+      "label": "Espace entre les messages sur ordinateur",
+      "min": 12,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "item_gap_mobile",
+      "label": "Espace entre les messages sur mobile",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "label": "Marge horizontale sur ordinateur",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding_mobile",
+      "label": "Marge horizontale sur mobile",
+      "min": 0,
+      "max": 48,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "icon_gap",
+      "label": "Espace entre l’icône et le texte",
+      "min": 2,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "icon_gap_mobile",
+      "label": "Espace entre l’icône et le texte sur mobile",
+      "min": 2,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "icon_size_desktop",
+      "label": "Taille des icônes sur ordinateur",
+      "min": 10,
+      "max": 34,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "icon_size_mobile",
+      "label": "Taille des icônes sur mobile",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Couleurs et bordures"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Icônes et séparateurs",
+      "default": "#FFC62E"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Bordures",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "border_top_width",
+      "label": "Bordure supérieure",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "border_bottom_width",
+      "label": "Bordure inférieure",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icône ou emoji",
+          "default": "✦"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Livraison offerte dès 50 €"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien facultatif"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Ouvrir dans un nouvel onglet",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Texte défilant",
+      "blocks": [
+        {
+          "type": "message",
+          "settings": {
+            "icon": "🚚",
+            "text": "Livraison offerte dès 50 €"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "icon": "↩",
+            "text": "Retours gratuits pendant 30 jours"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "icon": "🔥",
+            "text": "Offre limitée : jusqu’à -30 %"
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "icon": "★",
+            "text": "Plus de 3 500 clients satisfaits"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
