@@ -335,7 +335,87 @@
         "padding_top_desktop": 28,
         "padding_bottom_desktop": 28,
         "padding_top_mobile": 36,
-        "padding_bottom_mobile": 36
+        "padding_bottom_mobile": 52
+      }
+    },
+    "marqueedefilant_KFggdX": {
+      "type": "marqueedefilant",
+      "blocks": {
+        "message_HjatGW": {
+          "type": "message",
+          "settings": {
+            "icon": "🚚",
+            "text": "Livraison offerte dès 50 €",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "message_KX7FdQ": {
+          "type": "message",
+          "settings": {
+            "icon": "↩",
+            "text": "Retours gratuits pendant 30 jours",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "message_pAXcdb": {
+          "type": "message",
+          "settings": {
+            "icon": "🔥",
+            "text": "Offre limitée : jusqu’à -30 %",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "message_yJ66B7": {
+          "type": "message",
+          "settings": {
+            "icon": "★",
+            "text": "Plus de 3 500 clients satisfaits",
+            "link": "",
+            "open_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "message_HjatGW",
+        "message_KX7FdQ",
+        "message_pAXcdb",
+        "message_yJ66B7"
+      ],
+      "name": "Texte défilant",
+      "settings": {
+        "direction": "left",
+        "speed_desktop": 24,
+        "speed_mobile": 18,
+        "pause_on_hover": true,
+        "accessibility_label": "Informations importantes",
+        "separator": "",
+        "hide_last_separator": false,
+        "uppercase": true,
+        "font_weight": "700",
+        "font_size_desktop": 12,
+        "font_size_mobile": 12,
+        "letter_spacing": 4,
+        "separator_size_desktop": 18,
+        "separator_size_mobile": 15,
+        "height_desktop": 54,
+        "height_mobile": 46,
+        "item_gap_desktop": 40,
+        "item_gap_mobile": 24,
+        "horizontal_padding": 24,
+        "horizontal_padding_mobile": 20,
+        "icon_gap": 8,
+        "icon_gap_mobile": 6,
+        "icon_size_desktop": 18,
+        "icon_size_mobile": 15,
+        "background_color": "#FFDF5D",
+        "text_color": "#1B1B1B",
+        "accent_color": "#1B1B1B",
+        "border_color": "#111111",
+        "border_top_width": 0,
+        "border_bottom_width": 0
       }
     },
     "sectioncomparatif_hmiWXR": {
@@ -441,20 +521,20 @@
         "button_full_mobile": true,
         "button_text_size": 11,
         "button_radius": 6,
-        "button_background": "#FFDF5D",
-        "button_text_color": "#1B1B1B",
-        "background": "#FFFFFF",
+        "button_background": "#ffdf5d",
+        "button_text_color": "#1b1b1b",
+        "background": "#ffffff",
         "text_color": "#111111",
-        "muted_color": "#5A5A5A",
-        "card_background": "#FFFFFF",
+        "muted_color": "#5a5a5a",
+        "card_background": "#ffffff",
         "border_color": "#244236",
-        "product_color": "#FFDF5D",
-        "competitor_color": "#B7B7B7",
-        "vs_background": "#1B1B1B",
-        "vs_text_color": "#FFFFFF",
+        "product_color": "#ffdf5d",
+        "competitor_color": "#b7b7b7",
+        "vs_background": "#1b1b1b",
+        "vs_text_color": "#ffffff",
         "padding_top_desktop": 48,
         "padding_bottom_desktop": 24,
-        "padding_top_mobile": 16,
+        "padding_top_mobile": 60,
         "padding_bottom_mobile": 16
       }
     },
@@ -888,6 +968,7 @@
     "logoscroll_ip7zVK",
     "featured_collection_hNRc4X",
     "imagetextecta_qwPHKh",
+    "marqueedefilant_KFggdX",
     "sectioncomparatif_hmiWXR",
     "raisonsimpl_XeteFM",
     "rich_text_YnjPM9",
