@@ -73,7 +73,7 @@
       ],
       "name": "Avis clients premium",
       "settings": {
-        "heading": "CE QUE DISENT \nNOS CLIENTS",
+        "heading": "CE QUE DISENT NOS CLIENTS",
         "heading_tag": "h3",
         "brand_text": "Trustpilot",
         "show_brand_star": true,
@@ -93,7 +93,7 @@
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
         "uppercase_heading": true,
-        "heading_size_desktop": 38,
+        "heading_size_desktop": 32,
         "heading_size_mobile": 26,
         "heading_weight": "800",
         "heading_line_height": 106,
