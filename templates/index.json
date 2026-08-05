@@ -9,6 +9,137 @@
  */
 {
   "sections": {
+    "avisclients_q9K8az": {
+      "type": "avisclients",
+      "blocks": {
+        "review_HqUiHE": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_title": "",
+            "review_text": "De très bons produits. La qualité est au rendez-vous et le service client est très attentif.",
+            "read_more_label": "Lire la suite",
+            "read_more_link": "",
+            "author": "Marius Dekker",
+            "date": "Il y a 1 mois"
+          }
+        },
+        "review_bhynLa": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_title": "",
+            "review_text": "Un produit vraiment excellent. Je le porte depuis des semaines et j’en suis très satisfait.",
+            "read_more_label": "Lire la suite",
+            "read_more_link": "",
+            "author": "Davide Finato",
+            "date": "Il y a 2 mois"
+          }
+        },
+        "review_6rcf4c": {
+          "type": "review",
+          "settings": {
+            "rating": 4.5,
+            "review_title": "",
+            "review_text": "Très confortable et d’excellente qualité. Depuis que je l’ai acheté, je n’en porte plus d’autres.",
+            "read_more_label": "Lire la suite",
+            "read_more_link": "",
+            "author": "José Luis",
+            "date": "Il y a 3 mois"
+          }
+        },
+        "review_faWFJt": {
+          "type": "review",
+          "settings": {
+            "rating": 4.5,
+            "review_title": "",
+            "review_text": "Livraison rapide, belle qualité et très bon maintien. Je recommande sans hésiter.",
+            "read_more_label": "Lire la suite",
+            "read_more_link": "",
+            "author": "Uwe Stritzke",
+            "date": "Il y a 5 mois"
+          }
+        }
+      },
+      "block_order": [
+        "review_HqUiHE",
+        "review_bhynLa",
+        "review_6rcf4c",
+        "review_faWFJt"
+      ],
+      "name": "Avis clients premium",
+      "settings": {
+        "heading": "CE QUE DISENT NOS CLIENTS",
+        "heading_tag": "h2",
+        "brand_text": "Trustpilot",
+        "show_brand_star": true,
+        "overall_rating": 4.5,
+        "review_count": "3.5K+ avis",
+        "image_fit": "cover",
+        "image_position": "center center",
+        "mobile_image": false,
+        "mobile_image_height": 420,
+        "max_width": 2000,
+        "image_width": 27,
+        "image_height_desktop": 720,
+        "content_padding_desktop": 56,
+        "padding_top_desktop": 76,
+        "padding_bottom_desktop": 76,
+        "mobile_side_padding": 16,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "uppercase_heading": true,
+        "heading_size_desktop": 38,
+        "heading_size_mobile": 26,
+        "heading_weight": "800",
+        "heading_line_height": 88,
+        "heading_letter_spacing": -3,
+        "heading_max_width": 620,
+        "heading_max_width_mobile": 360,
+        "heading_bottom_spacing": 30,
+        "heading_bottom_spacing_mobile": 22,
+        "header_bottom_spacing": 46,
+        "header_bottom_spacing_mobile": 30,
+        "brand_size": 22,
+        "brand_size_mobile": 19,
+        "star_box_size": 20,
+        "star_box_size_mobile": 18,
+        "count_size": 13,
+        "count_size_mobile": 12,
+        "card_width_desktop": 390,
+        "card_width_mobile": 340,
+        "card_gap": 16,
+        "card_min_height": 200,
+        "card_radius": 0,
+        "card_padding_vertical": 26,
+        "card_padding_horizontal": 26,
+        "card_padding_vertical_mobile": 22,
+        "card_padding_horizontal_mobile": 20,
+        "card_star_box_size": 20,
+        "card_star_box_size_mobile": 19,
+        "rating_bottom_spacing": 18,
+        "review_title_size": 17,
+        "review_text_size": 16,
+        "review_line_height": 150,
+        "limit_text": true,
+        "text_lines": 5,
+        "collapse_label": "Réduire",
+        "read_more_size": 15,
+        "author_top_spacing": 26,
+        "avatar_size": 40,
+        "author_name_size": 15,
+        "date_size": 13,
+        "show_arrows": true,
+        "show_arrows_mobile": false,
+        "section_bg": "#ffffff",
+        "text_color": "#272727",
+        "muted_color": "#929292",
+        "accent_color": "#00b67a",
+        "empty_star_color": "#d8d8d8",
+        "card_bg": "#f4f4f4",
+        "card_text_color": "#333333"
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -64,6 +195,7 @@
     }
   },
   "order": [
+    "avisclients_q9K8az",
     "faq"
   ]
 }
