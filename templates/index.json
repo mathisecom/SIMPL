@@ -1164,10 +1164,16 @@
     "rich_text_gcnUGT": {
       "type": "rich-text",
       "blocks": {
-        "heading_xfDkDd": {
+        "subheading_4qRHmy": {
+          "type": "subheading",
+          "settings": {
+            "text": "RESTONS CONNECTÉS"
+          }
+        },
+        "heading_HbwKqU": {
           "type": "heading",
           "settings": {
-            "text": "Heading",
+            "text": "SUIVEZ-NOUS",
             "heading_tag": "h3",
             "text_color": "",
             "gradient": ""
@@ -1175,7 +1181,8 @@
         }
       },
       "block_order": [
-        "heading_xfDkDd"
+        "subheading_4qRHmy",
+        "heading_HbwKqU"
       ],
       "name": "Rich text",
       "settings": {
