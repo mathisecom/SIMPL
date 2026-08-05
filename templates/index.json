@@ -287,7 +287,7 @@
         "show_arrow": false,
         "image": "shopify://shop_images/cueca_lavando_1.webp",
         "image_side": "right",
-        "mobile_order": "content-first",
+        "mobile_order": "image-first",
         "image_ratio": "square",
         "image_fit": "cover",
         "image_position": "center center",
@@ -556,6 +556,91 @@
         "padding_bottom_desktop": 24,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 16
+      }
+    },
+    "imagetextecta_RqU9pi": {
+      "type": "imagetextecta",
+      "blocks": {
+        "badge_qGt9QN": {
+          "type": "badge",
+          "settings": {
+            "icon": "shield",
+            "title": "SATISFAIT OU REMBOURSÉ",
+            "text": "60 jours"
+          }
+        },
+        "badge_PfTdGc": {
+          "type": "badge",
+          "settings": {
+            "icon": "return",
+            "title": "RETOURS GRATUITS",
+            "text": "Sans conditions"
+          }
+        }
+      },
+      "block_order": [
+        "badge_qGt9QN",
+        "badge_PfTdGc"
+      ],
+      "name": "Offre texte + image",
+      "settings": {
+        "eyebrow": "",
+        "heading": "CONFORT ET DOUCEUR INÉGALÉS",
+        "text": "<p>Découvrez le confort de nos boxers en bambou, doux, légers et agréables au quotidien. </p><p>‎ </p><p>Leur fibre naturelle offre souplesse et bien-être, aussi bien pendant une journée active que lors de vos moments de détente.</p>",
+        "button_label": "ESSAYEZ-LE DÈS AUJOURD’HUI, SANS RISQUE !",
+        "button_link": "shopify://products/boxers-en-bambou-original-simpl",
+        "open_new_tab": false,
+        "show_arrow": false,
+        "image_side": "right",
+        "mobile_order": "image-first",
+        "image_ratio": "square",
+        "image_fit": "cover",
+        "image_position": "center center",
+        "custom_height_desktop": 540,
+        "custom_height_mobile": 380,
+        "content_width": 1400,
+        "media_width": 48,
+        "text_width": 560,
+        "gap_desktop": 72,
+        "gap_mobile": 32,
+        "vertical_alignment": "center",
+        "alignment": "left",
+        "mobile_alignment": "left",
+        "button_width": "full",
+        "button_full_mobile": true,
+        "button_uppercase": true,
+        "button_height": 52,
+        "button_text_size": 11,
+        "button_radius": 6,
+        "badges_desktop_columns": "2",
+        "badges_mobile_columns": "1",
+        "badge_padding": 8,
+        "badge_padding_mobile": 6,
+        "badge_title_size": 10,
+        "badge_title_size_mobile": 9,
+        "badge_text_size": 10,
+        "badge_text_size_mobile": 9,
+        "badge_radius": 4,
+        "heading_size_desktop": 32,
+        "heading_size_mobile": 26,
+        "heading_weight": "700",
+        "text_size_desktop": 15,
+        "text_size_mobile": 14,
+        "background": "#ffffff",
+        "text_color": "#111111",
+        "muted_color": "#555555",
+        "accent_color": "#1b1b1b",
+        "button_background": "#ffdf5d",
+        "button_text_color": "#111111",
+        "badge_background": "#ffffff",
+        "badge_border": "#e7e7e7",
+        "media_background": "#e8e8e8",
+        "image_radius": 28,
+        "shadow_opacity": 4,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 28,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 52
       }
     },
     "raisonsimpl_XeteFM": {
@@ -990,6 +1075,7 @@
     "imagetextecta_qwPHKh",
     "marqueedefilant_KFggdX",
     "sectioncomparatif_hmiWXR",
+    "imagetextecta_RqU9pi",
     "raisonsimpl_XeteFM",
     "rich_text_YnjPM9",
     "logoscroll_qe6ejH",
