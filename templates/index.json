@@ -20,6 +20,7 @@
             "review_text": "De très bons produits. La qualité est au rendez-vous et le service client est très attentif.",
             "read_more_label": "",
             "read_more_link": "",
+            "avatar": "shopify://shop_images/review-7.avif",
             "author": "Marius Dekker",
             "date": "Il y a 1 mois"
           }
@@ -32,6 +33,7 @@
             "review_text": "Un produit vraiment excellent. Je le porte depuis des semaines et j’en suis très satisfait.",
             "read_more_label": "",
             "read_more_link": "",
+            "avatar": "shopify://shop_images/review-6.avif",
             "author": "Davide Finato",
             "date": "Il y a 2 mois"
           }
@@ -44,6 +46,7 @@
             "review_text": "Très confortable et d’excellente qualité. Depuis que je l’ai acheté, je n’en porte plus d’autres.",
             "read_more_label": "",
             "read_more_link": "",
+            "avatar": "shopify://shop_images/jose-trustpilot-profile-photo.webp",
             "author": "José Luis",
             "date": "Il y a 3 mois"
           }
@@ -56,6 +59,7 @@
             "review_text": "Livraison rapide, belle qualité et très bon maintien. Je recommande sans hésiter.",
             "read_more_label": "",
             "read_more_link": "",
+            "avatar": "shopify://shop_images/davide-trustpilot-profile-photo.webp",
             "author": "Uwe Stritzke",
             "date": "Il y a 5 mois"
           }
