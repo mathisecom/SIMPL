@@ -171,12 +171,20 @@
             "image": "shopify://shop_images/Nouveau_projet_52.png",
             "url": ""
           }
+        },
+        "image_bqk6rY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Nouveau_projet_53.png",
+            "url": ""
+          }
         }
       },
       "block_order": [
         "image_PnqEVJ",
         "image_d8A8Ca",
-        "image_ERTeKi"
+        "image_ERTeKi",
+        "image_bqk6rY"
       ],
       "name": "SS - Scrolling logo cloud #5",
       "settings": {
