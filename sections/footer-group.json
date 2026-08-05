@@ -11,6 +11,100 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
+    "iconsfooter_FAQfTi": {
+      "type": "iconsfooter",
+      "blocks": {
+        "highlight_BMyAr9": {
+          "type": "highlight",
+          "settings": {
+            "product": "",
+            "use_product_image": false,
+            "icon": "shipping",
+            "title": "Expédition rapide",
+            "text": "<p>Livraison rapide et suivie.</p>",
+            "link": "",
+            "show_button": false,
+            "button_label": "Découvrir"
+          }
+        },
+        "highlight_4WjmXD": {
+          "type": "highlight",
+          "settings": {
+            "product": "",
+            "use_product_image": false,
+            "icon": "shield",
+            "title": "Garantie incluse",
+            "text": "<p>Achetez en toute sérénité.</p>",
+            "link": "",
+            "show_button": false,
+            "button_label": "Découvrir"
+          }
+        },
+        "highlight_6ckyVT": {
+          "type": "highlight",
+          "settings": {
+            "product": "",
+            "use_product_image": false,
+            "icon": "return",
+            "title": "Retour facile",
+            "text": "<p>Une procédure simple et rapide.</p>",
+            "link": "",
+            "show_button": false,
+            "button_label": "Découvrir"
+          }
+        },
+        "highlight_i9mxFq": {
+          "type": "highlight",
+          "settings": {
+            "product": "",
+            "use_product_image": false,
+            "icon": "support",
+            "title": "Support réactif",
+            "text": "<p>Une équipe disponible pour vous.</p>",
+            "link": "",
+            "show_button": false,
+            "button_label": "Découvrir"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_BMyAr9",
+        "highlight_4WjmXD",
+        "highlight_6ckyVT",
+        "highlight_i9mxFq"
+      ],
+      "name": "Cartes produits",
+      "settings": {
+        "heading": "",
+        "text": "",
+        "section_background": "#FFFFFF",
+        "card_background": "#ffffff",
+        "text_color": "#111111",
+        "accent_color": "#1B1B1B",
+        "content_width": 1320,
+        "columns_desktop": "4",
+        "columns_mobile": "2",
+        "card_gap": 20,
+        "card_gap_mobile": 6,
+        "card_radius": 16,
+        "card_height": 200,
+        "card_height_mobile": 150,
+        "icon_box_size": 60,
+        "icon_size": 32,
+        "icon_radius": 16,
+        "icon_box_size_mobile": 50,
+        "icon_size_mobile": 26,
+        "icon_radius_mobile": 14,
+        "title_size": 15,
+        "text_size": 14,
+        "title_size_mobile": 12,
+        "text_size_mobile": 11,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 16,
+        "padding_bottom_mobile": 28
+      }
+    },
     "text-with-icons": {
       "type": "text-with-icons",
       "blocks": {
@@ -132,6 +226,7 @@
     }
   },
   "order": [
+    "iconsfooter_FAQfTi",
     "text-with-icons",
     "footer"
   ]
