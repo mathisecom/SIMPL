@@ -419,6 +419,24 @@
         background: var(--ks-divider);
         content: "";
       }
+    {% elsif section.settings.columns_mobile == '3' %}
+      #{{ section_id }} .key-stats__grid--dividers .key-stats__item:not(:nth-child(3n + 1))::before {
+        display: block;
+        top: 8%;
+        bottom: 8%;
+        left: calc(var(--ks-gap-mobile) / -2);
+        width: 1px;
+      }
+
+      #{{ section_id }} .key-stats__grid--dividers .key-stats__item:nth-child(n + 4)::after {
+        position: absolute;
+        top: calc(var(--ks-gap-mobile) / -2);
+        right: 6%;
+        left: 6%;
+        height: 1px;
+        background: var(--ks-divider);
+        content: "";
+      }
     {% endif %}
   }
 
@@ -428,6 +446,37 @@
       transition: none;
     }
   }
+
+  @media screen and (max-width: 749px) {
+    #{{ section_id }} .key-stats__grid[style*="--ks-columns-mobile: 3"],
+    #{{ section_id }} .key-stats__grid {
+      min-width: 0;
+    }
+
+    {% if section.settings.columns_mobile == '3' %}
+      #{{ section_id }} .key-stats__item {
+        min-width: 0;
+      }
+
+      #{{ section_id }} .key-stats__value {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      #{{ section_id }} .key-stats__title,
+      #{{ section_id }} .key-stats__text {
+        overflow-wrap: anywhere;
+      }
+
+      #{{ section_id }} .key-stats__badge {
+        max-width: 100%;
+        padding-inline: 6px;
+        white-space: normal;
+        text-align: center;
+      }
+    {% endif %}
+  }
+
 {% endstyle %}
 
 {% schema %}
@@ -590,7 +639,7 @@
       "type": "select",
       "id": "columns_mobile",
       "label": "Colonnes sur mobile",
-      "default": "1",
+      "default": "3",
       "options": [
         {
           "value": "1",
@@ -599,6 +648,10 @@
         {
           "value": "2",
           "label": "2 colonnes"
+        },
+        {
+          "value": "3",
+          "label": "3 colonnes"
         }
       ]
     },
@@ -636,7 +689,7 @@
       "max": 60,
       "step": 4,
       "unit": "px",
-      "default": 24
+      "default": 12
     },
     {
       "type": "range",
@@ -666,7 +719,7 @@
       "max": 60,
       "step": 4,
       "unit": "px",
-      "default": 16
+      "default": 12
     },
     {
       "type": "range",
@@ -676,7 +729,7 @@
       "max": 40,
       "step": 4,
       "unit": "px",
-      "default": 12
+      "default": 4
     },
     {
       "type": "range",
@@ -720,7 +773,7 @@
       "max": 60,
       "step": 2,
       "unit": "px",
-      "default": 38
+      "default": 30
     },
     {
       "type": "select",
@@ -768,7 +821,7 @@
       "max": 26,
       "step": 1,
       "unit": "px",
-      "default": 17
+      "default": 13
     },
     {
       "type": "select",
@@ -812,7 +865,7 @@
       "max": 18,
       "step": 1,
       "unit": "px",
-      "default": 13
+      "default": 11
     },
     {
       "type": "header",
