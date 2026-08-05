@@ -333,7 +333,7 @@
         "image_radius": 28,
         "shadow_opacity": 4,
         "padding_top_desktop": 28,
-        "padding_bottom_desktop": 28,
+        "padding_bottom_desktop": 76,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 52
       }
@@ -546,8 +546,8 @@
         "competitor_color": "#b7b7b7",
         "vs_background": "#1b1b1b",
         "vs_text_color": "#ffffff",
-        "padding_top_desktop": 48,
-        "padding_bottom_desktop": 24,
+        "padding_top_desktop": 88,
+        "padding_bottom_desktop": 76,
         "padding_top_mobile": 60,
         "padding_bottom_mobile": 60
       }
@@ -731,8 +731,8 @@
         "media_background": "#e8e8e8",
         "image_radius": 28,
         "shadow_opacity": 4,
-        "padding_top_desktop": 28,
-        "padding_bottom_desktop": 28,
+        "padding_top_desktop": 76,
+        "padding_bottom_desktop": 56,
         "padding_top_mobile": 36,
         "padding_bottom_mobile": 24
       }
