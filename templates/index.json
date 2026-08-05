@@ -441,6 +441,90 @@
         "shadow_opacity": 0
       }
     },
+    "logoscroll_qe6ejH": {
+      "type": "logoscroll",
+      "blocks": {
+        "image_t7KGgE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141858.496.jpg",
+            "url": ""
+          }
+        },
+        "image_6imJq3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141849.379.jpg",
+            "url": ""
+          }
+        },
+        "image_zHWVWG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141845.824.jpg",
+            "url": ""
+          }
+        },
+        "image_6AreUb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141840.699.jpg",
+            "url": ""
+          }
+        },
+        "image_eXRrMW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141836.996.jpg",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_t7KGgE",
+        "image_6imJq3",
+        "image_zHWVWG",
+        "image_6AreUb",
+        "image_eXRrMW"
+      ],
+      "name": "SS - Scrolling logo cloud #5",
+      "settings": {
+        "layout_radius": 30,
+        "layout_border_thickness": 0,
+        "heading": "",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 10,
+        "heading_size_mobile": 9,
+        "heading_height": 130,
+        "scrolling_velocity": 18,
+        "scrolling_velocity_mobile": 14,
+        "scrolling_direction": "left",
+        "pause_hover": false,
+        "scrolling_gap": 30,
+        "scrolling_gap_mobile": 10,
+        "card_width_desktop": 160,
+        "card_width_mobile": 120,
+        "heading_color": "#121212",
+        "layout_bg_color": "#ffffff",
+        "layout_border_color": "#121212",
+        "background_color": "#ffffff",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 0,
+        "full_width": true,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
     "avisclients_q9K8az": {
       "type": "avisclients",
       "blocks": {
@@ -652,6 +736,7 @@
     "featured_collection_hNRc4X",
     "imagetextecta_qwPHKh",
     "raisonsimpl_XeteFM",
+    "logoscroll_qe6ejH",
     "avisclients_q9K8az",
     "faq"
   ]
