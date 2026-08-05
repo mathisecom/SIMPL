@@ -404,10 +404,10 @@
       "settings": {
         "heading": "",
         "text": "",
-        "section_background": "#FFFAE6",
-        "card_background": "#FFFAE6",
+        "section_background": "#fffae6",
+        "card_background": "#fffae6",
         "text_color": "#111111",
-        "accent_color": "#1B1B1B",
+        "accent_color": "#1b1b1b",
         "content_width": 1320,
         "columns_desktop": "4",
         "columns_mobile": "2",
