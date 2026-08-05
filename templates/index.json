@@ -391,7 +391,7 @@
       ],
       "name": "Avis clients premium",
       "settings": {
-        "heading": "CE QUE DISENT NOS CLIENTS",
+        "heading": "NOS CLIENTS SATISFAITS",
         "heading_tag": "h3",
         "brand_text": "Trustpilot",
         "show_brand_star": true,
