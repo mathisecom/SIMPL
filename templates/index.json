@@ -430,9 +430,9 @@
         "icon_gap_mobile": 6,
         "icon_size_desktop": 18,
         "icon_size_mobile": 15,
-        "background_color": "#FFFAE6",
-        "text_color": "#1B1B1B",
-        "accent_color": "#1B1B1B",
+        "background_color": "#fffae6",
+        "text_color": "#1b1b1b",
+        "accent_color": "#1b1b1b",
         "border_color": "#111111",
         "border_top_width": 0,
         "border_bottom_width": 0
