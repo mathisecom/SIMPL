@@ -685,7 +685,7 @@
         "button_link": "shopify://products/boxers-en-bambou-original-simpl",
         "open_new_tab": false,
         "show_arrow": false,
-        "image_side": "right",
+        "image_side": "left",
         "mobile_order": "image-first",
         "image_ratio": "square",
         "image_fit": "cover",
@@ -1184,6 +1184,7 @@
         "subheading_4qRHmy",
         "heading_HbwKqU"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "full_width": true,
@@ -1197,33 +1198,23 @@
     "image_link_blocks_wpXt6k": {
       "type": "image-link-blocks",
       "blocks": {
-        "item_F7hNQE": {
-          "type": "item",
-          "settings": {
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "item_ezJdCB": {
-          "type": "item",
-          "settings": {
-            "stretch_image": true,
-            "link_text": "",
-            "link_url": "",
-            "background": "",
-            "text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
         "item_r7C3dz": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141858.496.jpg",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_F7hNQE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141840.699.jpg",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
@@ -1236,6 +1227,20 @@
         "item_j3CgGL": {
           "type": "item",
           "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141836.996.jpg",
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "item_ezJdCB": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-05T141849.379.jpg",
             "stretch_image": true,
             "link_text": "",
             "link_url": "",
@@ -1247,11 +1252,12 @@
         }
       },
       "block_order": [
-        "item_F7hNQE",
-        "item_ezJdCB",
         "item_r7C3dz",
-        "item_j3CgGL"
+        "item_F7hNQE",
+        "item_j3CgGL",
+        "item_ezJdCB"
       ],
+      "disabled": true,
       "name": "Image link blocks",
       "settings": {
         "full_width": false,
