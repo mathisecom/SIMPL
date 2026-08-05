@@ -1,0 +1,1011 @@
+{% comment %}
+  Section Shopify OS 2.0 : Grille de raisons responsive
+  - 4 colonnes par défaut sur ordinateur
+  - 2 colonnes fixes sur mobile
+  - Contenu, couleurs, dimensions et styles modifiables dans l'éditeur de thème
+{% endcomment %}
+
+{% liquid
+  assign heading_tag = section.settings.heading_tag | default: 'h2'
+  assign shadow_alpha = section.settings.shadow_opacity | divided_by: 100.0
+%}
+
+<section
+  id="WhyGrid-{{ section.id }}"
+  class="wg-section wg--align-{{ section.settings.alignment }} wg--mobile-align-{{ section.settings.mobile_alignment }} wg--cards-{{ section.settings.card_style }} wg--ratio-{{ section.settings.image_ratio }}{% if section.settings.enable_hover %} wg--hover{% endif %}{% if section.settings.mobile_compact %} wg--mobile-compact{% endif %}"
+  style="
+    --wg-bg: {{ section.settings.background_color }};
+    --wg-text: {{ section.settings.text_color }};
+    --wg-muted: {{ section.settings.muted_color }};
+    --wg-accent: {{ section.settings.accent_color }};
+    --wg-accent-text: {{ section.settings.accent_text_color }};
+    --wg-card-bg: {{ section.settings.card_background }};
+    --wg-border: {{ section.settings.border_color }};
+    --wg-max-width: {{ section.settings.content_width }}px;
+    --wg-intro-width: {{ section.settings.intro_width }}px;
+    --wg-desktop-columns: {{ section.settings.desktop_columns }};
+    --wg-gap: {{ section.settings.card_gap }}px;
+    --wg-mobile-gap: {{ section.settings.mobile_gap }}px;
+    --wg-card-radius: {{ section.settings.card_radius }}px;
+    --wg-image-radius: {{ section.settings.image_radius }}px;
+    --wg-card-padding: {{ section.settings.card_padding }}px;
+    --wg-heading-size: {{ section.settings.heading_size }}px;
+    --wg-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --wg-subheading-size: {{ section.settings.subheading_size }}px;
+    --wg-card-title-size: {{ section.settings.card_title_size }}px;
+    --wg-card-text-size: {{ section.settings.card_text_size }}px;
+    --wg-section-padding-top: {{ section.settings.padding_top }}px;
+    --wg-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --wg-shadow-alpha: {{ shadow_alpha }};
+    --wg-mobile-lines: {{ section.settings.mobile_description_lines }};
+  "
+>
+  <div class="wg-section__inner">
+    {% if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.subheading != blank or section.settings.description != blank %}
+      <header class="wg-header">
+        {% if section.settings.eyebrow != blank %}
+          <div class="wg-header__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <{{ heading_tag }} class="wg-header__heading">{{ section.settings.heading }}</{{ heading_tag }}>
+        {% endif %}
+
+        {% if section.settings.subheading != blank %}
+          <div class="wg-header__subheading">{{ section.settings.subheading }}</div>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="wg-header__description rte">{{ section.settings.description }}</div>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="wg-grid" role="list">
+      {% for block in section.blocks %}
+        {% liquid
+          assign displayed_number = block.settings.number | strip
+          if displayed_number == blank
+            assign displayed_number = forloop.index
+          endif
+          assign image_alt = block.settings.image.alt | default: block.settings.title | escape
+        %}
+
+        <article class="wg-card" role="listitem" {{ block.shopify_attributes }}>
+          <div class="wg-card__media" style="--wg-image-position: {{ block.settings.image_position }};">
+            {% if block.settings.image != blank %}
+              {{
+                block.settings.image
+                | image_url: width: 1400
+                | image_tag:
+                  widths: '240, 360, 480, 640, 800, 1000, 1200, 1400',
+                  sizes: '(min-width: 990px) 25vw, 50vw',
+                  loading: 'lazy',
+                  class: 'wg-card__image',
+                  alt: image_alt
+              }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'wg-card__placeholder placeholder-svg' }}
+            {% endif %}
+
+            {% if section.settings.show_numbers %}
+              <span class="wg-card__number" aria-hidden="true">{{ displayed_number }}</span>
+            {% endif %}
+
+            {% if block.settings.badge != blank %}
+              <span class="wg-card__badge">{{ block.settings.badge | escape }}</span>
+            {% endif %}
+          </div>
+
+          <div class="wg-card__body">
+            {% if block.settings.kicker != blank %}
+              <div class="wg-card__kicker">{{ block.settings.kicker | escape }}</div>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <h3 class="wg-card__title">{{ block.settings.title | escape }}</h3>
+            {% endif %}
+
+            {% if block.settings.text != blank %}
+              <div class="wg-card__text rte">{{ block.settings.text }}</div>
+            {% endif %}
+
+            {% if block.settings.link != blank %}
+              <a class="wg-card__link" href="{{ block.settings.link }}">
+                {{ block.settings.link_label | default: 'En savoir plus' | escape }}
+                <span aria-hidden="true">→</span>
+              </a>
+            {% endif %}
+          </div>
+        </article>
+      {% else %}
+        <div class="wg-empty">Ajoutez des blocs « Raison » dans l’éditeur de thème.</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  #WhyGrid-{{ section.id }} {
+    background: var(--wg-bg);
+    color: var(--wg-text);
+    padding-top: var(--wg-section-padding-top);
+    padding-bottom: var(--wg-section-padding-bottom);
+  }
+
+  #WhyGrid-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-section__inner {
+    width: min(100%, var(--wg-max-width));
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header {
+    max-width: var(--wg-intro-width);
+    margin-bottom: clamp(28px, 4vw, 58px);
+  }
+
+  #WhyGrid-{{ section.id }}.wg--align-center .wg-header {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  #WhyGrid-{{ section.id }}.wg--align-left .wg-header {
+    margin-right: auto;
+    text-align: left;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    margin-bottom: 14px;
+    padding: 6px 12px;
+    border: 1px solid var(--wg-border);
+    border-radius: 999px;
+    background: var(--wg-card-bg);
+    color: var(--wg-accent);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header__heading {
+    position: relative;
+    margin: 0;
+    color: var(--wg-text);
+    font-size: clamp(28px, 4vw, var(--wg-heading-size));
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header__heading::after {
+    content: '';
+    display: block;
+    width: 52px;
+    height: 4px;
+    margin-top: 18px;
+    border-radius: 999px;
+    background: var(--wg-accent);
+  }
+
+  #WhyGrid-{{ section.id }}.wg--align-center .wg-header__heading::after {
+    margin-inline: auto;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header__subheading {
+    margin-top: 20px;
+    color: var(--wg-text);
+    font-size: var(--wg-subheading-size);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header__description {
+    margin-top: 14px;
+    color: var(--wg-muted);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header__description > *:first-child,
+  #WhyGrid-{{ section.id }} .wg-card__text > *:first-child {
+    margin-top: 0;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-header__description > *:last-child,
+  #WhyGrid-{{ section.id }} .wg-card__text > *:last-child {
+    margin-bottom: 0;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--wg-desktop-columns), minmax(0, 1fr));
+    gap: var(--wg-gap);
+    align-items: stretch;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card {
+    position: relative;
+    min-width: 0;
+    height: 100%;
+    border-radius: var(--wg-card-radius);
+    color: var(--wg-text);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  }
+
+  #WhyGrid-{{ section.id }}.wg--cards-panel .wg-card,
+  #WhyGrid-{{ section.id }}.wg--cards-outline .wg-card {
+    padding: var(--wg-card-padding);
+    border: 1px solid var(--wg-border);
+  }
+
+  #WhyGrid-{{ section.id }}.wg--cards-panel .wg-card {
+    overflow: hidden;
+    background: var(--wg-card-bg);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, var(--wg-shadow-alpha));
+  }
+
+  #WhyGrid-{{ section.id }}.wg--cards-panel .wg-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: var(--wg-accent);
+  }
+
+  #WhyGrid-{{ section.id }}.wg--cards-outline .wg-card {
+    background: transparent;
+  }
+
+  #WhyGrid-{{ section.id }}.wg--cards-minimal .wg-card {
+    background: transparent;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__media {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: var(--wg-image-radius);
+    background: var(--wg-card-bg);
+  }
+
+  #WhyGrid-{{ section.id }}.wg--ratio-landscape .wg-card__media {
+    aspect-ratio: 16 / 10;
+  }
+
+  #WhyGrid-{{ section.id }}.wg--ratio-wide .wg-card__media {
+    aspect-ratio: 16 / 9;
+  }
+
+  #WhyGrid-{{ section.id }}.wg--ratio-square .wg-card__media {
+    aspect-ratio: 1 / 1;
+  }
+
+  #WhyGrid-{{ section.id }}.wg--ratio-portrait .wg-card__media {
+    aspect-ratio: 4 / 5;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__image,
+  #WhyGrid-{{ section.id }} .wg-card__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__image {
+    object-fit: cover;
+    object-position: var(--wg-image-position);
+    transition: transform 350ms ease;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__placeholder {
+    min-height: 180px;
+    background: var(--wg-card-bg);
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__number {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    min-width: 34px;
+    height: 34px;
+    padding-inline: 8px;
+    border: 2px solid var(--wg-bg);
+    border-radius: 999px;
+    background: var(--wg-accent);
+    color: var(--wg-accent-text);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    max-width: calc(100% - 24px);
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: var(--wg-bg);
+    color: var(--wg-text);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__body {
+    padding-top: 18px;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__kicker {
+    margin-bottom: 7px;
+    color: var(--wg-accent);
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__title {
+    margin: 0;
+    color: var(--wg-text);
+    font-size: var(--wg-card-title-size);
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__text {
+    margin-top: 10px;
+    color: var(--wg-muted);
+    font-size: var(--wg-card-text-size);
+    line-height: 1.5;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+    color: var(--wg-accent);
+    font-size: 13px;
+    font-weight: 750;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__link span {
+    transition: transform 180ms ease;
+  }
+
+  #WhyGrid-{{ section.id }} .wg-card__link:hover span {
+    transform: translateX(3px);
+  }
+
+  #WhyGrid-{{ section.id }} .wg-empty {
+    grid-column: 1 / -1;
+    padding: 28px;
+    border: 1px dashed var(--wg-border);
+    border-radius: var(--wg-card-radius);
+    color: var(--wg-muted);
+    text-align: center;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    #WhyGrid-{{ section.id }}.wg--hover .wg-card:hover {
+      transform: translateY(-5px);
+    }
+
+    #WhyGrid-{{ section.id }}.wg--hover.wg--cards-panel .wg-card:hover {
+      box-shadow: 0 24px 60px rgba(0, 0, 0, calc(var(--wg-shadow-alpha) + 0.06));
+    }
+
+    #WhyGrid-{{ section.id }}.wg--hover .wg-card:hover .wg-card__image {
+      transform: scale(1.035);
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    #WhyGrid-{{ section.id }} .wg-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #WhyGrid-{{ section.id }} {
+      padding-top: calc(var(--wg-section-padding-top) * 0.72);
+      padding-bottom: calc(var(--wg-section-padding-bottom) * 0.72);
+    }
+
+    #WhyGrid-{{ section.id }} .wg-section__inner {
+      padding-inline: 14px;
+    }
+
+    #WhyGrid-{{ section.id }}.wg--mobile-align-center .wg-header {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    #WhyGrid-{{ section.id }}.wg--mobile-align-center .wg-header__heading::after {
+      margin-inline: auto;
+    }
+
+    #WhyGrid-{{ section.id }}.wg--mobile-align-left .wg-header {
+      margin-right: auto;
+      text-align: left;
+    }
+
+    #WhyGrid-{{ section.id }}.wg--mobile-align-left .wg-header__heading::after {
+      margin-right: auto;
+      margin-left: 0;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-header {
+      margin-bottom: 28px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-header__eyebrow {
+      min-height: 26px;
+      margin-bottom: 11px;
+      padding: 5px 10px;
+      font-size: 10px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-header__heading {
+      font-size: var(--wg-heading-size-mobile);
+      line-height: 1.05;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-header__heading::after {
+      width: 42px;
+      height: 3px;
+      margin-top: 14px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-header__subheading {
+      margin-top: 16px;
+      font-size: calc(var(--wg-subheading-size) * 0.84);
+    }
+
+    #WhyGrid-{{ section.id }} .wg-header__description {
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--wg-mobile-gap);
+    }
+
+    #WhyGrid-{{ section.id }}.wg--cards-panel .wg-card,
+    #WhyGrid-{{ section.id }}.wg--cards-outline .wg-card {
+      padding: max(8px, calc(var(--wg-card-padding) * 0.62));
+    }
+
+    #WhyGrid-{{ section.id }}.wg--cards-panel .wg-card::before {
+      width: 3px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-card__body {
+      padding-top: 11px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-card__number {
+      left: 7px;
+      bottom: 7px;
+      min-width: 27px;
+      height: 27px;
+      padding-inline: 6px;
+      border-width: 1px;
+      font-size: 10px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-card__badge {
+      top: 7px;
+      right: 7px;
+      padding: 5px 7px;
+      font-size: 9px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-card__kicker {
+      margin-bottom: 5px;
+      font-size: 9px;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-card__title {
+      font-size: clamp(13px, 3.7vw, var(--wg-card-title-size));
+      line-height: 1.18;
+    }
+
+    #WhyGrid-{{ section.id }} .wg-card__text {
+      margin-top: 7px;
+      font-size: clamp(10px, 2.8vw, var(--wg-card-text-size));
+      line-height: 1.4;
+    }
+
+    #WhyGrid-{{ section.id }}.wg--mobile-compact .wg-card__text {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: var(--wg-mobile-lines);
+    }
+
+    #WhyGrid-{{ section.id }} .wg-card__link {
+      gap: 4px;
+      margin-top: 9px;
+      font-size: 10px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #WhyGrid-{{ section.id }} .wg-card,
+    #WhyGrid-{{ section.id }} .wg-card__image,
+    #WhyGrid-{{ section.id }} .wg-card__link span {
+      transition: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Grille de raisons",
+  "tag": "section",
+  "class": "section-grille-raisons",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu d’introduction"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit libellé",
+      "default": "Pourquoi nous choisir"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Titre principal",
+      "default": "4 bonnes raisons de nous choisir"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Balise du titre",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "label": "Sous-titre",
+      "default": "Une conception pensée pour le confort, la durée et la confiance."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Texte d’introduction",
+      "default": "<p>Présentez ici votre promesse de marque et les bénéfices essentiels de votre produit.</p>"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignement sur ordinateur",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "À gauche" },
+        { "value": "center", "label": "Centré" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_alignment",
+      "label": "Alignement sur mobile",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "À gauche" },
+        { "value": "center", "label": "Centré" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 900,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 1300
+    },
+    {
+      "type": "range",
+      "id": "intro_width",
+      "min": 420,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur de l’introduction",
+      "default": 760
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Colonnes sur ordinateur",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement ordinateur",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "min": 6,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Espacement mobile",
+      "default": 10
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Format des images",
+      "default": "landscape",
+      "options": [
+        { "value": "wide", "label": "Large 16:9" },
+        { "value": "landscape", "label": "Paysage 16:10" },
+        { "value": "square", "label": "Carré 1:1" },
+        { "value": "portrait", "label": "Portrait 4:5" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Style des cartes",
+      "default": "panel",
+      "options": [
+        { "value": "panel", "label": "Panneaux avec ombre" },
+        { "value": "outline", "label": "Contour léger" },
+        { "value": "minimal", "label": "Minimal sans cadre" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_numbers",
+      "label": "Afficher les numéros",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover",
+      "label": "Animation au survol",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_compact",
+      "label": "Limiter le texte sur mobile",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "mobile_description_lines",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "label": "Lignes de texte sur mobile",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Dimensions"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi des cartes",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi des images",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge intérieure des cartes",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement supérieur",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement inférieur",
+      "default": 72
+    },
+    {
+      "type": "header",
+      "content": "Typographie"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 76,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille du titre ordinateur",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 22,
+      "max": 46,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du titre mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "min": 15,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du sous-titre",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 14,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille des titres de carte",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "card_text_size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille des textes de carte",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Arrière-plan de la section",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte principal",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Texte secondaire",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur d’accent",
+      "default": "#0e1b33"
+    },
+    {
+      "type": "color",
+      "id": "accent_text_color",
+      "label": "Texte sur l’accent",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Fond des cartes",
+      "default": "#f5f5f2"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Contours",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "range",
+      "id": "shadow_opacity",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "%",
+      "label": "Intensité de l’ombre",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Raison",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Position de l’image",
+          "default": "center center",
+          "options": [
+            { "value": "left top", "label": "Haut gauche" },
+            { "value": "center top", "label": "Haut centre" },
+            { "value": "right top", "label": "Haut droite" },
+            { "value": "left center", "label": "Centre gauche" },
+            { "value": "center center", "label": "Centre" },
+            { "value": "right center", "label": "Centre droite" },
+            { "value": "left bottom", "label": "Bas gauche" },
+            { "value": "center bottom", "label": "Bas centre" },
+            { "value": "right bottom", "label": "Bas droite" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Numéro personnalisé",
+          "info": "Laissez vide pour utiliser l’ordre du bloc."
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge sur l’image"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Petit libellé",
+          "default": "Bénéfice"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Un avantage important"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Expliquez clairement ce qui rend votre produit différent et utile au quotidien.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Texte du lien",
+          "default": "En savoir plus"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grille de raisons",
+      "blocks": [
+        {
+          "type": "reason",
+          "settings": {
+            "kicker": "Confort",
+            "title": "Pensé pour toute la journée",
+            "text": "<p>Une matière douce et respirante qui accompagne chaque mouvement sans gêne.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "kicker": "Légèreté",
+            "title": "Une sensation presque invisible",
+            "text": "<p>Une coupe précise et un tissu léger pour rester libre dans toutes les situations.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "kicker": "Durabilité",
+            "title": "Conçu pour durer plus longtemps",
+            "text": "<p>Des finitions robustes et des fibres sélectionnées pour conserver leur tenue lavage après lavage.</p>"
+          }
+        },
+        {
+          "type": "reason",
+          "settings": {
+            "kicker": "Confiance",
+            "title": "Une coupe qui vous met en valeur",
+            "text": "<p>Un maintien équilibré et une silhouette nette pour vous sentir bien au quotidien.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
