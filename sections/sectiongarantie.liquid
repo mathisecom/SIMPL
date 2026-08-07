@@ -1,0 +1,942 @@
+{% comment %}
+  Section Shopify : Garantie / Réassurance
+  Inspirée de la maquette fournie.
+  Responsive ordinateur + mobile.
+{% endcomment %}
+
+<section
+  id="garantie-{{ section.id }}"
+  class="garantie-section"
+  style="
+    --bg: {{ section.settings.background_color }};
+    --title-primary: {{ section.settings.title_primary_color }};
+    --title-secondary: {{ section.settings.title_secondary_color }};
+    --text-color: {{ section.settings.text_color }};
+    --button-bg: {{ section.settings.button_background }};
+    --button-text: {{ section.settings.button_text_color }};
+    --button-border: {{ section.settings.button_border_color }};
+    --benefit-color: {{ section.settings.benefit_color }};
+    --max-width: {{ section.settings.content_max_width }}px;
+    --image-width-desktop: {{ section.settings.image_width_desktop }}px;
+    --image-width-mobile: {{ section.settings.image_width_mobile }}px;
+    --section-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --section-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --title-size-desktop: {{ section.settings.title_size_desktop }}px;
+    --title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --text-size-desktop: {{ section.settings.text_size_desktop }}px;
+    --text-size-mobile: {{ section.settings.text_size_mobile }}px;
+    --button-size-desktop: {{ section.settings.button_size_desktop }}px;
+    --button-size-mobile: {{ section.settings.button_size_mobile }}px;
+    --benefit-size: {{ section.settings.benefit_text_size }}px;
+    --button-radius: {{ section.settings.button_radius }}px;
+  "
+>
+  <div class="garantie-section__inner">
+    {% if section.settings.top_image != blank %}
+      <div class="garantie-section__media">
+        {{
+          section.settings.top_image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            widths: '320, 480, 640, 800, 1000, 1200',
+            sizes: '(max-width: 749px) 78vw, 520px',
+            class: 'garantie-section__image',
+            alt: section.settings.top_image.alt
+        }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.title_primary != blank or section.settings.title_secondary != blank %}
+      <h2 class="garantie-section__title">
+        {% if section.settings.title_primary != blank %}
+          <span class="garantie-section__title-primary">{{ section.settings.title_primary | escape }}</span>
+        {% endif %}
+        {% if section.settings.title_secondary != blank %}
+          <span class="garantie-section__title-secondary">{{ section.settings.title_secondary | escape }}</span>
+        {% endif %}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <div class="garantie-section__description rte">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.button_label != blank %}
+      <a
+        class="garantie-section__button"
+        {% if section.settings.button_link != blank %}
+          href="{{ section.settings.button_link }}"
+        {% else %}
+          role="link" aria-disabled="true"
+        {% endif %}
+      >
+        {{ section.settings.button_label | escape }}
+      </a>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="garantie-section__benefits" role="list">
+        {% for block in section.blocks %}
+          <div class="garantie-section__benefit" role="listitem" {{ block.shopify_attributes }}>
+            <div class="garantie-section__benefit-icon" aria-hidden="true">
+              {% if block.settings.custom_icon != blank %}
+                {{
+                  block.settings.custom_icon
+                  | image_url: width: 120
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '40, 60, 80, 120',
+                    class: 'garantie-section__benefit-icon-image',
+                    alt: ''
+                }}
+              {% else %}
+                {% case block.settings.icon %}
+                  {% when 'return' %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M9 7H5v-4"/>
+                      <path d="M5.2 7.2A8 8 0 1 1 4 12"/>
+                      <path d="M9 12h6"/>
+                      <path d="M12 9l3 3-3 3"/>
+                    </svg>
+                  {% when 'truck' %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M3 5h11v11H3z"/>
+                      <path d="M14 9h4l3 4v3h-7z"/>
+                      <circle cx="7" cy="18" r="2"/>
+                      <circle cx="18" cy="18" r="2"/>
+                    </svg>
+                  {% when 'star' %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9z"/>
+                    </svg>
+                  {% else %}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 3 5 6v5c0 4.8 2.8 8.3 7 10 4.2-1.7 7-5.2 7-10V6z"/>
+                      <path d="m9 12 2 2 4-5"/>
+                    </svg>
+                {% endcase %}
+              {% endif %}
+            </div>
+
+            <div class="garantie-section__benefit-content">
+              {% if block.settings.title != blank %}
+                <div class="garantie-section__benefit-title">{{ block.settings.title | escape }}</div>
+              {% endif %}
+              {% if block.settings.subtitle != blank %}
+                <div class="garantie-section__benefit-subtitle">{{ block.settings.subtitle | escape }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+          {% unless forloop.last %}
+            <span class="garantie-section__divider" aria-hidden="true"></span>
+          {% endunless %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #garantie-{{ section.id }} {
+    background: var(--bg);
+    color: var(--text-color);
+    width: 100%;
+    padding: var(--section-padding-top-desktop) 20px var(--section-padding-bottom-desktop);
+    box-sizing: border-box;
+  }
+
+  #garantie-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__inner {
+    width: min(100%, var(--max-width));
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__media {
+    margin: 0 auto {{ section.settings.space_image_title }}px;
+    line-height: 0;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__image {
+    display: block;
+    width: min(100%, var(--image-width-desktop));
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__title {
+    margin: 0 0 {{ section.settings.space_title_text }}px;
+    padding: 0;
+    font-size: var(--title-size-desktop);
+    line-height: 1.05;
+    font-weight: {{ section.settings.title_weight }};
+    text-transform: {% if section.settings.uppercase_title %}uppercase{% else %}none{% endif %};
+    letter-spacing: {{ section.settings.title_letter_spacing | divided_by: 100.0 }}em;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__title-primary {
+    color: var(--title-primary);
+  }
+
+  #garantie-{{ section.id }} .garantie-section__title-secondary {
+    color: var(--title-secondary);
+  }
+
+  #garantie-{{ section.id }} .garantie-section__description {
+    max-width: {{ section.settings.text_max_width }}px;
+    margin: 0 auto {{ section.settings.space_text_button }}px;
+    color: var(--text-color);
+    font-size: var(--text-size-desktop);
+    line-height: {{ section.settings.text_line_height | divided_by: 100.0 }};
+  }
+
+  #garantie-{{ section.id }} .garantie-section__description p {
+    margin: 0;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__description strong,
+  #garantie-{{ section.id }} .garantie-section__description b {
+    color: inherit;
+    font-weight: 700;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, {{ section.settings.button_width }}px);
+    min-height: {{ section.settings.button_height }}px;
+    padding: 12px 18px;
+    margin: 0 auto {{ section.settings.space_button_benefits }}px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: {{ section.settings.button_border_width }}px solid var(--button-border);
+    border-radius: var(--button-radius);
+    text-decoration: none;
+    text-align: center;
+    font-size: var(--button-size-desktop);
+    line-height: 1.2;
+    font-weight: {{ section.settings.button_weight }};
+    text-transform: {% if section.settings.uppercase_button %}uppercase{% else %}none{% endif %};
+    letter-spacing: {{ section.settings.button_letter_spacing | divided_by: 100.0 }}em;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__button:hover {
+    transform: translateY(-1px);
+    opacity: .92;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefits {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    width: min(100%, {{ section.settings.benefits_max_width }}px);
+    margin: 0 auto;
+    color: var(--benefit-color);
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 {{ section.settings.benefit_horizontal_padding }}px;
+    text-align: left;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefit-icon {
+    flex: 0 0 auto;
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    display: grid;
+    place-items: center;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefit-icon svg,
+  #garantie-{{ section.id }} .garantie-section__benefit-icon-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefit-content {
+    min-width: 0;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefit-title,
+  #garantie-{{ section.id }} .garantie-section__benefit-subtitle {
+    font-size: var(--benefit-size);
+    line-height: 1.25;
+    text-transform: {% if section.settings.uppercase_benefits %}uppercase{% else %}none{% endif %};
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefit-title {
+    font-weight: 700;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__benefit-subtitle {
+    margin-top: 3px;
+    font-weight: 500;
+    opacity: .96;
+  }
+
+  #garantie-{{ section.id }} .garantie-section__divider {
+    width: 1px;
+    align-self: stretch;
+    min-height: 38px;
+    background: var(--benefit-color);
+    opacity: .45;
+  }
+
+  @media screen and (max-width: 749px) {
+    #garantie-{{ section.id }} {
+      padding: var(--section-padding-top-mobile) 18px var(--section-padding-bottom-mobile);
+    }
+
+    #garantie-{{ section.id }} .garantie-section__media {
+      margin-bottom: {{ section.settings.space_image_title_mobile }}px;
+    }
+
+    #garantie-{{ section.id }} .garantie-section__image {
+      width: min(100%, var(--image-width-mobile));
+    }
+
+    #garantie-{{ section.id }} .garantie-section__title {
+      margin-bottom: {{ section.settings.space_title_text_mobile }}px;
+      font-size: var(--title-size-mobile);
+    }
+
+    #garantie-{{ section.id }} .garantie-section__description {
+      margin-bottom: {{ section.settings.space_text_button_mobile }}px;
+      font-size: var(--text-size-mobile);
+    }
+
+    #garantie-{{ section.id }} .garantie-section__button {
+      width: min(100%, {{ section.settings.button_width_mobile }}px);
+      min-height: {{ section.settings.button_height_mobile }}px;
+      margin-bottom: {{ section.settings.space_button_benefits_mobile }}px;
+      font-size: var(--button-size-mobile);
+    }
+
+    #garantie-{{ section.id }} .garantie-section__benefits {
+      {% if section.settings.mobile_benefits_stack %}
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      {% else %}
+        flex-wrap: wrap;
+      {% endif %}
+    }
+
+    {% if section.settings.mobile_benefits_stack %}
+      #garantie-{{ section.id }} .garantie-section__benefit {
+        width: min(100%, 310px);
+        flex: none;
+        justify-content: flex-start;
+        padding: 0;
+      }
+
+      #garantie-{{ section.id }} .garantie-section__divider {
+        width: min(100%, 310px);
+        height: 1px;
+        min-height: 0;
+      }
+    {% else %}
+      #garantie-{{ section.id }} .garantie-section__benefit {
+        min-width: 145px;
+        padding: 0 8px;
+      }
+    {% endif %}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Garantie & réassurance",
+  "tag": "section",
+  "class": "section-garantie-reassurance",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_image",
+      "label": "Image principale"
+    },
+    {
+      "type": "range",
+      "id": "image_width_desktop",
+      "min": 180,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur image - ordinateur",
+      "default": 430
+    },
+    {
+      "type": "range",
+      "id": "image_width_mobile",
+      "min": 140,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur image - mobile",
+      "default": 300
+    },
+
+    {
+      "type": "header",
+      "content": "Titre"
+    },
+    {
+      "type": "text",
+      "id": "title_primary",
+      "label": "Titre - partie 1",
+      "default": "180 LAVAGES"
+    },
+    {
+      "type": "text",
+      "id": "title_secondary",
+      "label": "Titre - partie 2",
+      "default": " GARANTIS"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase_title",
+      "label": "Titre en majuscules",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "title_weight",
+      "min": 400,
+      "max": 900,
+      "step": 100,
+      "label": "Graisse du titre",
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "min": 16,
+      "max": 70,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille titre - ordinateur",
+      "default": 27
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 16,
+      "max": 46,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille titre - mobile",
+      "default": 23
+    },
+    {
+      "type": "range",
+      "id": "title_letter_spacing",
+      "min": -5,
+      "max": 20,
+      "step": 1,
+      "label": "Espacement lettres du titre",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Texte"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Nos boxers sont accompagnés d'une <strong>garantie de 180 lavages</strong>, promettant une <strong>tenue et une résistance du tissu à 100 %</strong> — ils durent jusqu'à 3 fois plus longtemps que d'autres marques !</p>"
+    },
+    {
+      "type": "range",
+      "id": "text_max_width",
+      "min": 300,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur maximale du texte",
+      "default": 620
+    },
+    {
+      "type": "range",
+      "id": "text_size_desktop",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte - ordinateur",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte - mobile",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "text_line_height",
+      "min": 110,
+      "max": 200,
+      "step": 5,
+      "label": "Interligne du texte",
+      "default": 145
+    },
+
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "ESSAYEZ SANS RISQUE – AUJOURD'HUI À -50 % !"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase_button",
+      "label": "Bouton en majuscules",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "button_weight",
+      "min": 400,
+      "max": 900,
+      "step": 100,
+      "label": "Graisse du texte du bouton",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "button_size_desktop",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte bouton - ordinateur",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "button_size_mobile",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte bouton - mobile",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_width",
+      "min": 220,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur bouton - ordinateur",
+      "default": 420
+    },
+    {
+      "type": "range",
+      "id": "button_width_mobile",
+      "min": 220,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur bouton - mobile",
+      "default": 360
+    },
+    {
+      "type": "range",
+      "id": "button_height",
+      "min": 36,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur bouton - ordinateur",
+      "default": 58
+    },
+    {
+      "type": "range",
+      "id": "button_height_mobile",
+      "min": 36,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur bouton - mobile",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrondi du bouton",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "label": "Épaisseur bordure bouton",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "button_letter_spacing",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "label": "Espacement lettres bouton",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Réassurances"
+    },
+    {
+      "type": "range",
+      "id": "benefits_max_width",
+      "min": 320,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur totale des réassurances",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "benefit_text_size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte réassurances",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 16,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille des icônes",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "benefit_horizontal_padding",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement horizontal",
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "uppercase_benefits",
+      "label": "Réassurances en majuscules",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_benefits_stack",
+      "label": "Empiler les réassurances sur mobile",
+      "default": false
+    },
+
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "title_primary_color",
+      "label": "Titre - partie 1",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "title_secondary_color",
+      "label": "Titre - partie 2",
+      "default": "#777777"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Fond du bouton",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Texte du bouton",
+      "default": "#001F73"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Bordure du bouton",
+      "default": "#D8D8D8"
+    },
+    {
+      "type": "color",
+      "id": "benefit_color",
+      "label": "Icônes et textes réassurance",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "header",
+      "content": "Espacements"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 600,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur maximale du contenu",
+      "default": 1000
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge haute - ordinateur",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge basse - ordinateur",
+      "default": 86
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge haute - mobile",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge basse - mobile",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "space_image_title",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace image / titre - ordinateur",
+      "default": 54
+    },
+    {
+      "type": "range",
+      "id": "space_image_title_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace image / titre - mobile",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "space_title_text",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace titre / texte - ordinateur",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "space_title_text_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace titre / texte - mobile",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "space_text_button",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace texte / bouton - ordinateur",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "space_text_button_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace texte / bouton - mobile",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "space_button_benefits",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace bouton / réassurances - ordinateur",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "space_button_benefits_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace bouton / réassurances - mobile",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Réassurance",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icône",
+          "default": "shield",
+          "options": [
+            { "value": "shield", "label": "Bouclier" },
+            { "value": "return", "label": "Retour" },
+            { "value": "truck", "label": "Livraison" },
+            { "value": "star", "label": "Étoile" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Icône personnalisée (facultatif)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ligne 1",
+          "default": "SATISFAIT OU REMBOURSÉ"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Ligne 2",
+          "default": "45 JOURS"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Garantie & réassurance",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "SATISFAIT OU REMBOURSÉ",
+            "subtitle": "45 JOURS"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "return",
+            "title": "RETOURS GRATUITS",
+            "subtitle": "SANS CONDITIONS"
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4
+}
+{% endschema %}
