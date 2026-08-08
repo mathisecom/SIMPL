@@ -904,13 +904,13 @@
         "uppercase_benefits": true,
         "mobile_benefits_stack": false,
         "background_color": "#000000",
-        "title_primary_color": "#FFFFFF",
+        "title_primary_color": "#ffffff",
         "title_secondary_color": "#777777",
-        "text_color": "#FFFFFF",
-        "button_background": "#FFDF5D",
+        "text_color": "#ffffff",
+        "button_background": "#ffdf5d",
         "button_text_color": "#000000",
-        "button_border_color": "#FFDF5D",
-        "benefit_color": "#FFFFFF",
+        "button_border_color": "#ffdf5d",
+        "benefit_color": "#ffffff",
         "content_max_width": 1000,
         "padding_top_desktop": 44,
         "padding_bottom_desktop": 44,
@@ -1213,36 +1213,36 @@
         "166442457738b23caf-0": {
           "type": "item",
           "settings": {
-            "title": "Do you ship overseas?",
-            "content": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+            "title": "Qu'est-ce que la fibre de bambou et pourquoi est-elle utilisée pour les boxers ?",
+            "content": "<p>La fibre de bambou est une matière naturelle de plus en plus appréciée pour ses propriétés douces, respirantes et écologiques. Elle est utilisée dans la fabrication de nos boxers pour offrir un confort optimal et favoriser une meilleure hygiène intime.</p>"
           }
         },
         "166442457738b23caf-1": {
           "type": "item",
           "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "Pourquoi les dermatologues recommandent-ils les boxers en fibres de bambou ?",
+            "content": "<p>Les dermatologues recommandent nos boxers en fibres de bambou pour leur douceur et leur capacité à réduire les frottements désagréables, ce qui contribue à maintenir une hygiène impeccable dans les parties intimes.</p>"
           }
         },
         "166442457738b23caf-2": {
           "type": "item",
           "settings": {
-            "title": "Any question?",
-            "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "En quoi la respirabilité des boxers en fibres de bambou diffère-t-elle de celle des autres matériaux ?",
+            "content": "<p>La respirabilité exceptionnelle de nos boxers en fibres de bambou permet à l'air de circuler, réduisant ainsi l'humidité et la transpiration. Vous vous sentirez toujours à l'aise et frais, quelle que soit votre activité.</p>"
           }
         },
         "item_3jiFwe": {
           "type": "item",
           "settings": {
-            "title": "Question",
-            "content": "<p>Write content to answer to common questions your customers may have about your products, shipping policies..</p>"
+            "title": "Que signifie l'offre \"5 achetés + 5 gratuits\" ?",
+            "content": "<p>Notre offre spéciale vous permet d'acheter 5 boxers en fibre de bambou et d'en recevoir 5 gratuitement. Il s'agit d'une occasion limitée de renouveler votre collection de sous-vêtements de haute qualité. À ne pas manquer !</p>"
           }
         },
         "item_HbcVYj": {
           "type": "item",
           "settings": {
-            "title": "Question",
-            "content": "<p>Write content to answer to common questions your customers may have about your products, shipping policies..</p>"
+            "title": "Quelle est la durabilité des boxers en fibres de bambou par rapport aux boxers traditionnels ?",
+            "content": "<p>Les boxers en fibre de bambou sont conçus pour une plus grande durabilité grâce à leur matériau de haute qualité. Ils sont plus résistants à l'usure et durent plus longtemps que les boxers ordinaires.</p>"
           }
         }
       },
