@@ -1,0 +1,973 @@
+{% comment %}
+  Section SIMPL - Technologie fibre de bambou
+  Responsive desktop + mobile, entièrement personnalisable depuis l'éditeur Shopify.
+{% endcomment %}
+
+<section
+  id="simpl-tech-{{ section.id }}"
+  class="simpl-tech"
+  style="
+    --simpl-outer-bg: {{ section.settings.outer_background }};
+    --simpl-overlay: {{ section.settings.overlay_color }};
+    --simpl-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --simpl-radius-desktop: {{ section.settings.radius_desktop }}px;
+    --simpl-radius-mobile: {{ section.settings.radius_mobile }}px;
+    --simpl-min-height-desktop: {{ section.settings.min_height_desktop }}px;
+    --simpl-min-height-mobile: {{ section.settings.min_height_mobile }}px;
+    --simpl-content-width-desktop: {{ section.settings.content_width_desktop }}px;
+    --simpl-content-width-mobile: {{ section.settings.content_width_mobile }}px;
+    --simpl-padding-x-desktop: {{ section.settings.padding_x_desktop }}px;
+    --simpl-padding-y-desktop: {{ section.settings.padding_y_desktop }}px;
+    --simpl-padding-x-mobile: {{ section.settings.padding_x_mobile }}px;
+    --simpl-padding-y-mobile: {{ section.settings.padding_y_mobile }}px;
+    --simpl-margin-top-desktop: {{ section.settings.margin_top_desktop }}px;
+    --simpl-margin-bottom-desktop: {{ section.settings.margin_bottom_desktop }}px;
+    --simpl-margin-top-mobile: {{ section.settings.margin_top_mobile }}px;
+    --simpl-margin-bottom-mobile: {{ section.settings.margin_bottom_mobile }}px;
+    --simpl-eyebrow-color: {{ section.settings.eyebrow_color }};
+    --simpl-heading-color: {{ section.settings.heading_color }};
+    --simpl-body-color: {{ section.settings.body_color }};
+    --simpl-button-bg: {{ section.settings.button_background }};
+    --simpl-button-color: {{ section.settings.button_text_color }};
+    --simpl-button-border: {{ section.settings.button_border_color }};
+    --simpl-button-radius: {{ section.settings.button_radius }}px;
+    --simpl-eyebrow-size-desktop: {{ section.settings.eyebrow_size_desktop }}px;
+    --simpl-eyebrow-size-mobile: {{ section.settings.eyebrow_size_mobile }}px;
+    --simpl-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --simpl-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --simpl-body-size-desktop: {{ section.settings.body_size_desktop }}px;
+    --simpl-body-size-mobile: {{ section.settings.body_size_mobile }}px;
+    --simpl-button-size-desktop: {{ section.settings.button_size_desktop }}px;
+    --simpl-button-size-mobile: {{ section.settings.button_size_mobile }}px;
+    --simpl-button-width-desktop: {{ section.settings.button_width_desktop }}px;
+    --simpl-button-width-mobile: {{ section.settings.button_width_mobile }}px;
+    --simpl-gap-eyebrow-heading-desktop: {{ section.settings.gap_eyebrow_heading_desktop }}px;
+    --simpl-gap-heading-body-desktop: {{ section.settings.gap_heading_body_desktop }}px;
+    --simpl-gap-body-desktop: {{ section.settings.gap_body_desktop }}px;
+    --simpl-gap-button-desktop: {{ section.settings.gap_button_desktop }}px;
+    --simpl-gap-eyebrow-heading-mobile: {{ section.settings.gap_eyebrow_heading_mobile }}px;
+    --simpl-gap-heading-body-mobile: {{ section.settings.gap_heading_body_mobile }}px;
+    --simpl-gap-body-mobile: {{ section.settings.gap_body_mobile }}px;
+    --simpl-gap-button-mobile: {{ section.settings.gap_button_mobile }}px;
+    --simpl-bg-x-desktop: {{ section.settings.bg_x_desktop }}%;
+    --simpl-bg-y-desktop: {{ section.settings.bg_y_desktop }}%;
+    --simpl-bg-x-mobile: {{ section.settings.bg_x_mobile }}%;
+    --simpl-bg-y-mobile: {{ section.settings.bg_y_mobile }}%;
+  "
+>
+  <div class="simpl-tech__shell{% if section.settings.full_width %} simpl-tech__shell--full{% endif %}">
+    <div
+      class="simpl-tech__panel"
+      {% if section.settings.background_desktop != blank %}
+        style="background-image: url('{{ section.settings.background_desktop | image_url: width: 2400 }}');"
+      {% endif %}
+    >
+      <div class="simpl-tech__overlay" aria-hidden="true"></div>
+
+      <div class="simpl-tech__content simpl-tech__content--{{ section.settings.text_alignment }}">
+        {% if section.settings.eyebrow != blank %}
+          <div class="simpl-tech__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="simpl-tech__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+        {% endif %}
+
+        {% if section.settings.body_1 != blank %}
+          <div class="simpl-tech__body simpl-tech__body--1 rte">
+            {{ section.settings.body_1 }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.body_2 != blank %}
+          <div class="simpl-tech__body simpl-tech__body--2 rte">
+            {{ section.settings.body_2 }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank %}
+          <a
+            class="simpl-tech__button"
+            {% if section.settings.button_link != blank %}
+              href="{{ section.settings.button_link }}"
+            {% else %}
+              role="link" aria-disabled="true"
+            {% endif %}
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #simpl-tech-{{ section.id }} {
+    background: var(--simpl-outer-bg);
+    margin-top: var(--simpl-margin-top-desktop);
+    margin-bottom: var(--simpl-margin-bottom-desktop);
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__shell {
+    width: min(100% - 32px, {{ section.settings.section_max_width }}px);
+    margin-inline: auto;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__shell--full {
+    width: 100%;
+    max-width: none;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__panel {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--simpl-min-height-desktop);
+    padding: var(--simpl-padding-y-desktop) var(--simpl-padding-x-desktop);
+    overflow: hidden;
+    border-radius: var(--simpl-radius-desktop);
+    background-color: #262626;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: var(--simpl-bg-x-desktop) var(--simpl-bg-y-desktop);
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--simpl-overlay);
+    opacity: var(--simpl-overlay-opacity);
+    pointer-events: none;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, var(--simpl-content-width-desktop));
+    color: var(--simpl-body-color);
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__content--left {
+    text-align: left;
+    margin-right: auto;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__content--center {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__content--right {
+    text-align: right;
+    margin-left: auto;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__eyebrow {
+    color: var(--simpl-eyebrow-color);
+    font-size: var(--simpl-eyebrow-size-desktop);
+    line-height: 1.25;
+    font-weight: {{ section.settings.eyebrow_weight }};
+    margin: 0 0 var(--simpl-gap-eyebrow-heading-desktop);
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__heading {
+    color: var(--simpl-heading-color);
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: {{ section.settings.heading_weight }};
+    font-size: var(--simpl-heading-size-desktop);
+    line-height: {{ section.settings.heading_line_height | divided_by: 100.0 }};
+    letter-spacing: {{ section.settings.heading_letter_spacing }}px;
+    margin: 0 0 var(--simpl-gap-heading-body-desktop);
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__body {
+    color: var(--simpl-body-color);
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-size: var(--simpl-body-size-desktop);
+    line-height: {{ section.settings.body_line_height | divided_by: 100.0 }};
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__body p,
+  #simpl-tech-{{ section.id }} .simpl-tech__body ul,
+  #simpl-tech-{{ section.id }} .simpl-tech__body ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__body a {
+    color: inherit;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__body--1 {
+    margin-bottom: var(--simpl-gap-body-desktop);
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, var(--simpl-button-width-desktop));
+    min-height: {{ section.settings.button_height_desktop }}px;
+    margin-top: var(--simpl-gap-button-desktop);
+    padding: 12px 22px;
+    border: {{ section.settings.button_border_width }}px solid var(--simpl-button-border);
+    border-radius: var(--simpl-button-radius);
+    background: var(--simpl-button-bg);
+    color: var(--simpl-button-color);
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--font-body-family, inherit);
+    font-size: var(--simpl-button-size-desktop);
+    line-height: 1.15;
+    font-weight: {{ section.settings.button_weight }};
+    text-transform: {{ section.settings.button_transform }};
+    letter-spacing: {{ section.settings.button_letter_spacing }}px;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__button:hover {
+    transform: translateY(-1px);
+    opacity: .9;
+  }
+
+  #simpl-tech-{{ section.id }} .simpl-tech__button[aria-disabled='true'] {
+    cursor: default;
+  }
+
+  @media screen and (max-width: 749px) {
+    #simpl-tech-{{ section.id }} {
+      margin-top: var(--simpl-margin-top-mobile);
+      margin-bottom: var(--simpl-margin-bottom-mobile);
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__shell {
+      width: min(100% - 12px, {{ section.settings.section_max_width }}px);
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__shell--full {
+      width: 100%;
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__panel {
+      min-height: var(--simpl-min-height-mobile);
+      padding: var(--simpl-padding-y-mobile) var(--simpl-padding-x-mobile);
+      border-radius: var(--simpl-radius-mobile);
+      background-position: var(--simpl-bg-x-mobile) var(--simpl-bg-y-mobile);
+      {% if section.settings.background_mobile != blank %}
+        background-image: url('{{ section.settings.background_mobile | image_url: width: 1200 }}') !important;
+      {% endif %}
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__content {
+      width: min(100%, var(--simpl-content-width-mobile));
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__eyebrow {
+      font-size: var(--simpl-eyebrow-size-mobile);
+      margin-bottom: var(--simpl-gap-eyebrow-heading-mobile);
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__heading {
+      font-size: var(--simpl-heading-size-mobile);
+      margin-bottom: var(--simpl-gap-heading-body-mobile);
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__body {
+      font-size: var(--simpl-body-size-mobile);
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__body--1 {
+      margin-bottom: var(--simpl-gap-body-mobile);
+    }
+
+    #simpl-tech-{{ section.id }} .simpl-tech__button {
+      width: min(100%, var(--simpl-button-width-mobile));
+      min-height: {{ section.settings.button_height_mobile }}px;
+      margin-top: var(--simpl-gap-button-mobile);
+      font-size: var(--simpl-button-size-mobile);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "SIMPL - Fibre de bambou",
+  "tag": "section",
+  "class": "section-simpl-tech",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_desktop",
+      "label": "Image de fond - ordinateur"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_mobile",
+      "label": "Image de fond - mobile"
+    },
+    {
+      "type": "range",
+      "id": "bg_x_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Position horizontale image - ordinateur",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bg_y_desktop",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Position verticale image - ordinateur",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bg_x_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Position horizontale image - mobile",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "bg_y_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Position verticale image - mobile",
+      "default": 50
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur du voile",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité du voile",
+      "default": 50
+    },
+
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit texte au-dessus",
+      "default": "Une révolution dans les sous-vêtements pour hommes"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Technologie fibre de Bambou"
+    },
+    {
+      "type": "richtext",
+      "id": "body_1",
+      "label": "Texte 1",
+      "default": "<p><strong>On connaît tous la galère des boxers qui remontent, qui étouffent la peau ou qui s’abîment trop vite.</strong> C’est pourquoi nous avons conçu les boxers en bambou <strong>SIMPL</strong>, alliant innovation textile et fibres de bambou haut de gamme.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "body_2",
+      "label": "Texte 2",
+      "default": "<p><strong>Fini les désagréments :</strong> plus d’irritations, plus de chaleur excessive, plus d’inconfort. Passez enfin à des boxers pensés pour votre bien-être, conçus par des hommes qui savent exactement ce qu’il vous faut.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "ESSAYEZ SANS RISQUE – AUJOURD’HUI À -40% !"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien du bouton"
+    },
+
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Pleine largeur",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_max_width",
+      "min": 900,
+      "max": 1800,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur maximale de la section",
+      "default": 1280
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Alignement du texte",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Gauche" },
+        { "value": "center", "label": "Centre" },
+        { "value": "right", "label": "Droite" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "content_width_desktop",
+      "min": 400,
+      "max": 1100,
+      "step": 20,
+      "unit": "px",
+      "label": "Largeur du contenu - ordinateur",
+      "default": 760
+    },
+    {
+      "type": "range",
+      "id": "content_width_mobile",
+      "min": 260,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur du contenu - mobile",
+      "default": 380
+    },
+    {
+      "type": "range",
+      "id": "min_height_desktop",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur minimale - ordinateur",
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "min_height_mobile",
+      "min": 420,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "label": "Hauteur minimale - mobile",
+      "default": 620
+    },
+    {
+      "type": "range",
+      "id": "padding_x_desktop",
+      "min": 20,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge intérieure horizontale - ordinateur",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_y_desktop",
+      "min": 20,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge intérieure verticale - ordinateur",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_x_mobile",
+      "min": 12,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Marge intérieure horizontale - mobile",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "padding_y_mobile",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge intérieure verticale - mobile",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "radius_desktop",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi - ordinateur",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "radius_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi - mobile",
+      "default": 24
+    },
+
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "outer_background",
+      "label": "Fond autour de la section",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Couleur petit texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Couleur du titre",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Couleur du texte",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Fond du bouton",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Texte du bouton",
+      "default": "#00237a"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Bordure du bouton",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "header",
+      "content": "Typographie"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size_desktop",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Petit texte - taille ordinateur",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size_mobile",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Petit texte - taille mobile",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "eyebrow_weight",
+      "label": "Petit texte - graisse",
+      "default": "700",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Moyen" },
+        { "value": "600", "label": "Semi-gras" },
+        { "value": "700", "label": "Gras" },
+        { "value": "800", "label": "Très gras" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "min": 28,
+      "max": 76,
+      "step": 2,
+      "unit": "px",
+      "label": "Titre - taille ordinateur",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 24,
+      "max": 52,
+      "step": 1,
+      "unit": "px",
+      "label": "Titre - taille mobile",
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Titre - graisse",
+      "default": "600",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Moyen" },
+        { "value": "600", "label": "Semi-gras" },
+        { "value": "700", "label": "Gras" },
+        { "value": "800", "label": "Très gras" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height",
+      "min": 90,
+      "max": 150,
+      "step": 5,
+      "unit": "%",
+      "label": "Titre - hauteur de ligne",
+      "default": 105
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "min": -2,
+      "max": 4,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Titre - espacement des lettres",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "body_size_desktop",
+      "min": 13,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte - taille ordinateur",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "body_size_mobile",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte - taille mobile",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "body_line_height",
+      "min": 110,
+      "max": 190,
+      "step": 5,
+      "unit": "%",
+      "label": "Texte - hauteur de ligne",
+      "default": 140
+    },
+
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "range",
+      "id": "button_width_desktop",
+      "min": 180,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur bouton - ordinateur",
+      "default": 450
+    },
+    {
+      "type": "range",
+      "id": "button_width_mobile",
+      "min": 180,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Largeur bouton - mobile",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "button_height_desktop",
+      "min": 44,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur bouton - ordinateur",
+      "default": 58
+    },
+    {
+      "type": "range",
+      "id": "button_height_mobile",
+      "min": 44,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur bouton - mobile",
+      "default": 58
+    },
+    {
+      "type": "range",
+      "id": "button_size_desktop",
+      "min": 11,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte bouton - taille ordinateur",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_size_mobile",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte bouton - taille mobile",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "button_weight",
+      "label": "Texte bouton - graisse",
+      "default": "800",
+      "options": [
+        { "value": "500", "label": "Moyen" },
+        { "value": "600", "label": "Semi-gras" },
+        { "value": "700", "label": "Gras" },
+        { "value": "800", "label": "Très gras" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_transform",
+      "label": "Casse du bouton",
+      "default": "uppercase",
+      "options": [
+        { "value": "none", "label": "Normale" },
+        { "value": "uppercase", "label": "Majuscules" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "button_letter_spacing",
+      "min": 0,
+      "max": 3,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Bouton - espacement des lettres",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi du bouton",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Épaisseur bordure bouton",
+      "default": 0
+    },
+
+    {
+      "type": "header",
+      "content": "Espacements - ordinateur"
+    },
+    {
+      "type": "range",
+      "id": "gap_eyebrow_heading_desktop",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace petit texte / titre",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "gap_heading_body_desktop",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace titre / texte",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_body_desktop",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace entre les 2 textes",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_button_desktop",
+      "min": 0,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant le bouton",
+      "default": 30
+    },
+
+    {
+      "type": "header",
+      "content": "Espacements - mobile"
+    },
+    {
+      "type": "range",
+      "id": "gap_eyebrow_heading_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace petit texte / titre",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "gap_heading_body_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace titre / texte",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "gap_body_mobile",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace entre les 2 textes",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "gap_button_mobile",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant le bouton",
+      "default": 26
+    },
+
+    {
+      "type": "header",
+      "content": "Marges extérieures"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute - ordinateur",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse - ordinateur",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge haute - mobile",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Marge basse - mobile",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "SIMPL - Fibre de bambou"
+    }
+  ]
+}
+{% endschema %}
