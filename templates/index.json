@@ -1244,6 +1244,20 @@
             "title": "Quelle est la durabilité des boxers en fibres de bambou par rapport aux boxers traditionnels ?",
             "content": "<p>Les boxers en fibre de bambou sont conçus pour une plus grande durabilité grâce à leur matériau de haute qualité. Ils sont plus résistants à l'usure et durent plus longtemps que les boxers ordinaires.</p>"
           }
+        },
+        "item_gHgFyU": {
+          "type": "item",
+          "settings": {
+            "title": "Les boxers en fibres de bambou conviennent-ils aux peaux sensibles ?",
+            "content": "<p>Oui, en général, les boxers en fibre de bambou conviennent aux peaux sensibles en raison de leur douceur et de leur capacité à réduire les irritations cutanées. Toutefois, si vous avez des préoccupations particulières, nous vous recommandons de consulter un professionnel de la santé.</p>"
+          }
+        },
+        "item_VBVLdJ": {
+          "type": "item",
+          "settings": {
+            "title": "Puis-je laver les boxers en fibres de bambou dans la machine à laver ?",
+            "content": "<p>Oui, nos boxers en fibre de bambou sont lavables en machine. Veuillez suivre les instructions d'entretien fournies avec votre boxer pour un lavage optimal.</p>"
+          }
         }
       },
       "block_order": [
@@ -1251,7 +1265,9 @@
         "166442457738b23caf-1",
         "166442457738b23caf-2",
         "item_3jiFwe",
-        "item_HbcVYj"
+        "item_HbcVYj",
+        "item_gHgFyU",
+        "item_VBVLdJ"
       ],
       "settings": {
         "full_width": true,
