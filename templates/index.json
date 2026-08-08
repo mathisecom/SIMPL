@@ -1231,13 +1231,6 @@
             "content": "<p>La respirabilité exceptionnelle de nos boxers en fibres de bambou permet à l'air de circuler, réduisant ainsi l'humidité et la transpiration. Vous vous sentirez toujours à l'aise et frais, quelle que soit votre activité.</p>"
           }
         },
-        "item_3jiFwe": {
-          "type": "item",
-          "settings": {
-            "title": "Que signifie l'offre \"5 achetés + 5 gratuits\" ?",
-            "content": "<p>Notre offre spéciale vous permet d'acheter 5 boxers en fibre de bambou et d'en recevoir 5 gratuitement. Il s'agit d'une occasion limitée de renouveler votre collection de sous-vêtements de haute qualité. À ne pas manquer !</p>"
-          }
-        },
         "item_HbcVYj": {
           "type": "item",
           "settings": {
@@ -1264,7 +1257,6 @@
         "166442457738b23caf-0",
         "166442457738b23caf-1",
         "166442457738b23caf-2",
-        "item_3jiFwe",
         "item_HbcVYj",
         "item_gHgFyU",
         "item_VBVLdJ"
