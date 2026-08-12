@@ -464,6 +464,7 @@
           "settings": {
             "product": "",
             "use_product_image": false,
+            "icon_image": "shopify://shop_images/ChatGPT_Image_12_aout_2026_17_35_07_1.png",
             "icon": "support",
             "title": "Confortable",
             "text": "",
