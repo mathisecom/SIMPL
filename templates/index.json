@@ -15,8 +15,8 @@
         "image_FifpRw": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/BANNER_PC_29.jpg",
-            "mobile_image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-12T171731.551.jpg",
+            "image": "shopify://shop_images/BANNER_PC_30.jpg",
+            "mobile_image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-12T172020.505.jpg",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
