@@ -422,6 +422,7 @@
           "settings": {
             "product": "",
             "use_product_image": false,
+            "icon_image": "shopify://shop_images/ChatGPT_Image_12_aout_2026_17_31_53_3.png",
             "icon": "shipping",
             "title": "Confort Ultime",
             "text": "",
@@ -435,6 +436,7 @@
           "settings": {
             "product": "",
             "use_product_image": false,
+            "icon_image": "shopify://shop_images/ChatGPT_Image_12_aout_2026_17_31_53_2.png",
             "icon": "shield",
             "title": "Ultra Respirant",
             "text": "",
@@ -448,6 +450,7 @@
           "settings": {
             "product": "",
             "use_product_image": false,
+            "icon_image": "shopify://shop_images/ChatGPT_Image_12_aout_2026_17_31_54_4.png",
             "icon": "return",
             "title": "Tissu Inodore",
             "text": "",
@@ -493,10 +496,10 @@
         "card_height": 200,
         "card_height_mobile": 130,
         "icon_box_size": 60,
-        "icon_size": 32,
+        "icon_size": 56,
         "icon_radius": 16,
         "icon_box_size_mobile": 50,
-        "icon_size_mobile": 26,
+        "icon_size_mobile": 44,
         "icon_radius_mobile": 14,
         "title_size": 17,
         "text_size": 16,
