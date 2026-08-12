@@ -15,6 +15,8 @@
         "image_FifpRw": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/BANNER_PC_29.jpg",
+            "mobile_image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-12T171731.551.jpg",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
@@ -27,7 +29,7 @@
             "button_background": "#ffffff",
             "button_text_color": "#000000",
             "overlay_color": "#000000",
-            "overlay_opacity": 30,
+            "overlay_opacity": 0,
             "background": "",
             "background_gradient": ""
           }
@@ -287,7 +289,7 @@
         "eyebrow_color": "#ffffff",
         "heading_color": "#ffffff",
         "body_color": "#ffffff",
-        "button_background": "#FFDF5D",
+        "button_background": "#ffdf5d",
         "button_text_color": "#000000",
         "button_border_color": "#ffffff",
         "eyebrow_size_desktop": 18,
