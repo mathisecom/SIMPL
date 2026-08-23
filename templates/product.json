@@ -24,14 +24,6 @@
             "heading_tag": "h4"
           }
         },
-        "description_6QfJQH": {
-          "type": "description",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "collapse_content": false
-          }
-        },
         "badges": {
           "type": "badges",
           "settings": {}
@@ -40,8 +32,17 @@
           "type": "separator",
           "settings": {}
         },
+        "description_6QfJQH": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
         "price": {
           "type": "price",
+          "disabled": true,
           "settings": {
             "show_taxes_notice": false
           }
@@ -128,9 +129,9 @@
       "block_order": [
         "liquid_FFq7jK",
         "title",
-        "description_6QfJQH",
         "badges",
         "separator_NBkaKc",
+        "description_6QfJQH",
         "price",
         "liquid_zN6QtN",
         "variant_picker",
@@ -384,7 +385,7 @@
         "cta_text": "ESSAYEZ SANS RISQUE AUJOURD'HUI",
         "cta_link": "shopify://products/boxers-en-bambou-original-simpl",
         "image": "shopify://shop_images/Gemini_Generated_Image_kg7n1nkg7n1nkg7n.jpg",
-        "bg_color": "#E8E2DB",
+        "bg_color": "#e8e2db",
         "title_color": "#0d1b2a",
         "text_color": "#2d3748",
         "accent_color": "#2ec4b6",
