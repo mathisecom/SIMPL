@@ -34,6 +34,12 @@
             "show_taxes_notice": false
           }
         },
+        "liquid_zN6QtN": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n  .stock-badge {\n    display: inline-flex;\n    align-items: center;\n    gap: 6px;\n    background-color: #fce8e8;\n    color: #8b2e2e;\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px 14px;\n    border-radius: 999px;\n    font-family: inherit;\n  }\n\n  .stock-badge__dot {\n    width: 7px;\n    height: 7px;\n    border-radius: 50%;\n    background-color: #e0392b;\n    flex-shrink: 0;\n    animation: stock-badge-pulse 1.5s infinite;\n  }\n\n  @keyframes stock-badge-pulse {\n    0% {\n      box-shadow: 0 0 0 0 rgba(224, 57, 43, 0.6);\n    }\n    70% {\n      box-shadow: 0 0 0 6px rgba(224, 57, 43, 0);\n    }\n    100% {\n      box-shadow: 0 0 0 0 rgba(224, 57, 43, 0);\n    }\n  }\n</style>\n\n<div class=\"stock-badge\">\n  <span class=\"stock-badge__dot\"></span>\n  <span>Plus que quelques pièces disponibles !</span>\n</div>"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -92,6 +98,7 @@
         "title",
         "badges",
         "price",
+        "liquid_zN6QtN",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
