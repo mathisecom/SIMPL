@@ -319,12 +319,32 @@
         "btn_url": "",
         "guarantee": "Garantie de remboursement de 30 jours"
       }
+    },
+    "deos_garanti_69qdxU": {
+      "type": "deos-garanti",
+      "name": "DEOS Garantie 30 jours",
+      "settings": {
+        "badge_number": "30",
+        "badge_label": "JOURS",
+        "eyebrow": "RESSENTEZ LA DIFFÉRENCE",
+        "title": "Essai sans risque de 30 jours",
+        "text": "Si vous ne constatez aucune différence significative au niveau de votre odeur corporelle, de votre haleine ou de votre fraîcheur générale dans les 30 jours, nous vous rembourserons intégralement, sans poser de questions.",
+        "cta_text": "ESSAYEZ SANS RISQUE AUJOURD'HUI",
+        "cta_link": "",
+        "bg_color": "#f5f0eb",
+        "title_color": "#0d1b2a",
+        "text_color": "#2d3748",
+        "accent_color": "#2ec4b6",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "main",
     "temoignages_clients_pFyLzT",
     "timelin_parcour_pBHWce",
-    "chiffres_mententpas_QciYDx"
+    "chiffres_mententpas_QciYDx",
+    "deos_garanti_69qdxU"
   ]
 }
