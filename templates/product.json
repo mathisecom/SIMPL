@@ -218,73 +218,113 @@
         "photo_speed": 80
       }
     },
-    "logo_list_F7EGHG": {
-      "type": "logo-list",
+    "timelin_parcour_pBHWce": {
+      "type": "timelin-parcour",
       "blocks": {
-        "logo_jyEkfn": {
-          "type": "logo",
+        "step_WyyVAe": {
+          "type": "step",
           "settings": {
-            "logo_width": 120,
-            "link": ""
+            "badge_text": "Semaine 1 : Le changement subtil",
+            "badge_style": "accent",
+            "items": "Vous remarquerez peut-être d'abord que votre haleine est plus fraîche.\nL'intensité de l'odeur corporelle commence à s'atténuer – elle n'a pas encore disparu, mais elle est différente.\nL'odeur de la salle de bain commence à diminuer."
           }
         },
-        "logo_MEBwCT": {
-          "type": "logo",
+        "step_mxrVAz": {
+          "type": "step",
           "settings": {
-            "logo_width": 120,
-            "link": ""
+            "badge_text": "Semaine 2 : La différence est bien réelle",
+            "badge_style": "accent",
+            "items": "L'odeur corporelle est nettement plus légère/minimale tout au long de la journée.\nL'haleine reste fraîche plus longtemps, même après avoir pris un café ou mangé.\nLes personnes les plus proches de vous commencent à remarquer l'amélioration avant vous."
           }
         },
-        "logo_HppFbU": {
-          "type": "logo",
+        "step_9PKrD9": {
+          "type": "step",
           "settings": {
-            "logo_width": 120,
-            "link": ""
+            "badge_text": "Semaine 3 : La confiance s'installe",
+            "badge_style": "accent",
+            "items": "Fraîcheur toute la journée – corps et haleine.\nZones problématiques – pieds, aisselles, parties intimes – réduction significative.\nTu cesses de penser à ton odeur."
           }
         },
-        "logo_wGjk8N": {
-          "type": "logo",
+        "step_w7TjNF": {
+          "type": "step",
           "settings": {
-            "logo_width": 120,
-            "link": ""
-          }
-        },
-        "logo_hUfMUi": {
-          "type": "logo",
-          "settings": {
-            "logo_width": 120,
-            "link": ""
+            "badge_text": "Semaine 4 et suivantes : La nouvelle normalité",
+            "badge_style": "accent",
+            "items": "Fraîcheur corporelle et haleine constante, toute la journée.\nLa plupart des clients disent avoir remplacé leur ancien déodorant.\nLes résultats restent stables tant que vous respectez les horaires quotidiens."
           }
         }
       },
       "block_order": [
-        "logo_jyEkfn",
-        "logo_MEBwCT",
-        "logo_HppFbU",
-        "logo_wGjk8N",
-        "logo_hUfMUi"
+        "step_WyyVAe",
+        "step_mxrVAz",
+        "step_9PKrD9",
+        "step_w7TjNF"
       ],
-      "name": "Logo list",
+      "name": "DEOS Parcours Fraîcheur",
       "settings": {
-        "full_width": true,
-        "stack_mobile": true,
-        "title": "Logo list",
-        "content": "",
-        "text_alignment": "start",
-        "items_per_row": 5,
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "logo_item_background": "",
-        "logo_item_border": ""
+        "title": "Votre parcours de fraîcheur avec DEOS®",
+        "intro": "DEOS® agit de l'intérieur vers l'extérieur : les résultats se manifestent progressivement, et non instantanément. Voici ce que la plupart des clients constatent après avoir commencé une utilisation quotidienne :",
+        "cta_text": "Commencez mon voyage",
+        "cta_link": "",
+        "guarantee_text": "Garantie de remboursement de 30 jours",
+        "bg_color": "#ffffff",
+        "title_color": "#0d1b2a",
+        "text_color": "#2d3748",
+        "accent_color": "#2ec4b6",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "chiffres_mententpas_QciYDx": {
+      "type": "chiffres-mententpas",
+      "blocks": {
+        "stat_ptLiym": {
+          "type": "stat",
+          "settings": {
+            "number": 94,
+            "suffix": "%",
+            "description": "Ils ont déclaré que leur odeur corporelle avait sensiblement diminué après avoir utilisé DEOS® régulièrement pendant plus de 2 semaines."
+          }
+        },
+        "stat_4kgApn": {
+          "type": "stat",
+          "settings": {
+            "number": 94,
+            "suffix": "%",
+            "description": "Ils ont déclaré que leur odeur corporelle avait sensiblement diminué après avoir utilisé DEOS® régulièrement pendant plus de 2 semaines."
+          }
+        },
+        "stat_mWwKJ3": {
+          "type": "stat",
+          "settings": {
+            "number": 94,
+            "suffix": "%",
+            "description": "Ils ont déclaré que leur odeur corporelle avait sensiblement diminué après avoir utilisé DEOS® régulièrement pendant plus de 2 semaines."
+          }
+        }
+      },
+      "block_order": [
+        "stat_ptLiym",
+        "stat_4kgApn",
+        "stat_mWwKJ3"
+      ],
+      "name": "Chiffres clés",
+      "settings": {
+        "accent_color": "#00b5ad",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "title": "Les chiffres ne mentent pas.",
+        "subtitle": "Nous avons interrogé des milliers de clients DEOS®. Voici ce qu'ils nous ont dit :",
+        "btn_label": "ESSAYEZ SANS RISQUE AUJOURD'HUI",
+        "btn_url": "",
+        "guarantee": "Garantie de remboursement de 30 jours"
       }
     }
   },
   "order": [
     "main",
     "temoignages_clients_pFyLzT",
-    "logo_list_F7EGHG"
+    "timelin_parcour_pBHWce",
+    "chiffres_mententpas_QciYDx"
   ]
 }
