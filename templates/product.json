@@ -328,6 +328,108 @@
         "padding_bottom": 80
       }
     },
+    "raisonsimpl_zg83x9": {
+      "type": "raisonsimpl",
+      "blocks": {
+        "reason_rt33dx": {
+          "type": "reason",
+          "settings": {
+            "image_position": "center center",
+            "number": "",
+            "badge": "",
+            "kicker": "Confort",
+            "title": "Pensé pour toute la journée",
+            "text": "<p>Une matière douce et respirante qui accompagne chaque mouvement sans gêne.</p>",
+            "link_label": "En savoir plus",
+            "link": ""
+          }
+        },
+        "reason_kPCttp": {
+          "type": "reason",
+          "settings": {
+            "image_position": "center center",
+            "number": "",
+            "badge": "",
+            "kicker": "Légèreté",
+            "title": "Une sensation presque invisible",
+            "text": "<p>Une coupe précise et un tissu léger pour rester libre dans toutes les situations.</p>",
+            "link_label": "En savoir plus",
+            "link": ""
+          }
+        },
+        "reason_y3Cw43": {
+          "type": "reason",
+          "settings": {
+            "image_position": "center center",
+            "number": "",
+            "badge": "",
+            "kicker": "Durabilité",
+            "title": "Conçu pour durer plus longtemps",
+            "text": "<p>Des finitions robustes et des fibres sélectionnées pour conserver leur tenue lavage après lavage.</p>",
+            "link_label": "En savoir plus",
+            "link": ""
+          }
+        },
+        "reason_tBVLn3": {
+          "type": "reason",
+          "settings": {
+            "image_position": "center center",
+            "number": "",
+            "badge": "",
+            "kicker": "Confiance",
+            "title": "Une coupe qui vous met en valeur",
+            "text": "<p>Un maintien équilibré et une silhouette nette pour vous sentir bien au quotidien.</p>",
+            "link_label": "En savoir plus",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "reason_rt33dx",
+        "reason_kPCttp",
+        "reason_y3Cw43",
+        "reason_tBVLn3"
+      ],
+      "name": "Grille de raisons",
+      "settings": {
+        "eyebrow": "Pourquoi nous choisir",
+        "heading": "4 bonnes raisons de nous choisir",
+        "heading_tag": "h2",
+        "subheading": "Une conception pensée pour le confort, la durée et la confiance.",
+        "description": "<p>Présentez ici votre promesse de marque et les bénéfices essentiels de votre produit.</p>",
+        "alignment": "center",
+        "mobile_alignment": "center",
+        "content_width": 1300,
+        "intro_width": 760,
+        "desktop_columns": 4,
+        "card_gap": 22,
+        "mobile_gap": 10,
+        "image_ratio": "landscape",
+        "card_style": "panel",
+        "show_numbers": true,
+        "enable_hover": true,
+        "mobile_compact": false,
+        "mobile_description_lines": 4,
+        "card_radius": 18,
+        "image_radius": 14,
+        "card_padding": 12,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "heading_size": 52,
+        "heading_size_mobile": 32,
+        "subheading_size": 22,
+        "card_title_size": 18,
+        "card_text_size": 14,
+        "background_color": "#ffffff",
+        "text_color": "#121212",
+        "muted_color": "#666666",
+        "accent_color": "#0e1b33",
+        "accent_text_color": "#ffffff",
+        "card_background": "#f5f5f2",
+        "border_color": "#e5e5e5",
+        "shadow_opacity": 10
+      }
+    },
     "chiffres_mententpas_QciYDx": {
       "type": "chiffres-mententpas",
       "blocks": {
@@ -398,6 +500,7 @@
     "main",
     "temoignages_clients_pFyLzT",
     "timelin_parcour_pBHWce",
+    "raisonsimpl_zg83x9",
     "chiffres_mententpas_QciYDx",
     "deos_garanti_69qdxU"
   ]
