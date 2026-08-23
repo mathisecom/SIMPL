@@ -151,23 +151,57 @@
       "blocks": {
         "photo_Y4keNy": {
           "type": "photo",
-          "settings": {}
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_s042i0s042i0s042.jpg"
+          }
         },
         "photo_apeV4n": {
           "type": "photo",
-          "settings": {}
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_7tzggp7tzggp7tzg.jpg"
+          }
         },
         "photo_kKyMrY": {
           "type": "photo",
-          "settings": {}
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_hkfi0bhkfi0bhkfi.jpg"
+          }
         },
         "photo_j6qVdX": {
           "type": "photo",
-          "settings": {}
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_qmc8diqmc8diqmc8.jpg"
+          }
         },
         "photo_eQED9c": {
           "type": "photo",
-          "settings": {}
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_2rk3b02rk3b02rk3.jpg"
+          }
+        },
+        "photo_irtX3K": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_brd1bmbrd1bmbrd1.jpg"
+          }
+        },
+        "photo_ACzrTP": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_mk9oeamk9oeamk9o.jpg"
+          }
+        },
+        "photo_cPx48L": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_866qc3866qc3866q.jpg"
+          }
+        },
+        "photo_UwywMG": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Gemini_Generated_Image_cncqvecncqvecncq.jpg"
+          }
         },
         "review_QeEXzC": {
           "type": "review",
@@ -200,6 +234,10 @@
         "photo_kKyMrY",
         "photo_j6qVdX",
         "photo_eQED9c",
+        "photo_irtX3K",
+        "photo_ACzrTP",
+        "photo_cPx48L",
+        "photo_UwywMG",
         "review_QeEXzC",
         "review_z8bnyp",
         "review_wx9x9L"
