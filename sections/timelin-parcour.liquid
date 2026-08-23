@@ -1,0 +1,595 @@
+{%- comment -%}
+  Section "Votre parcours de fraîcheur avec DEOS®"
+  Compatible avec le thème Shopify Shrine
+  À placer dans : sections/deos-parcours-fraicheur.liquid
+{%- endcomment -%}
+
+<style>
+  .deos-parcours {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg_color }};
+    overflow: hidden;
+  }
+
+  .deos-parcours__inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .deos-parcours__header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .deos-parcours__title {
+    font-family: var(--font-heading-family, "Assistant"), serif;
+    font-weight: 800;
+    font-size: clamp(28px, 4.2vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: {{ section.settings.title_color }};
+    margin: 0 0 20px;
+  }
+
+  .deos-parcours__title span {
+    font-size: 0.6em;
+    vertical-align: super;
+    font-weight: 600;
+  }
+
+  .deos-parcours__intro {
+    font-family: var(--font-body-family, "Assistant"), sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: {{ section.settings.text_color }};
+    opacity: 0.85;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  /* Timeline */
+  .deos-timeline {
+    position: relative;
+    padding-left: 32px;
+  }
+
+  /* Rail de fond (léger) */
+  .deos-timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: {{ section.settings.accent_color }};
+    opacity: 0.15;
+  }
+
+  /* Ligne verte animée qui descend avec le scroll */
+  .deos-timeline__progress {
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(
+      to bottom,
+      {{ section.settings.accent_color }} 0%,
+      {{ section.settings.accent_color }} 90%,
+      rgba(46, 196, 182, 0) 100%
+    );
+    box-shadow: 0 0 8px rgba(46, 196, 182, 0.5);
+    transition: height 0.1s linear;
+    z-index: 1;
+  }
+
+  .deos-step {
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .deos-step:last-child {
+    margin-bottom: 0;
+  }
+
+  /* DOT — intérieur vert plein */
+  .deos-step__dot {
+    position: absolute;
+    left: -32px;
+    top: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: {{ section.settings.accent_color }};
+    border: 2px solid {{ section.settings.accent_color }};
+    box-shadow: 0 0 0 4px {{ section.settings.bg_color }};
+    z-index: 2;
+    opacity: 0.35;
+    transform: scale(0.9);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  /* Au moment où l'étape devient active : le dot s'allume et clignote en boucle (effet halo + pulsation interne) */
+  .deos-step.is-active .deos-step__dot {
+    opacity: 1;
+    transform: scale(1);
+    animation: deos-dot-pulse 1.6s ease-in-out infinite;
+  }
+
+  @keyframes deos-dot-pulse {
+    0%, 100% {
+      background: {{ section.settings.accent_color }};
+      box-shadow: 0 0 0 4px {{ section.settings.bg_color }},
+                  0 0 0 0 rgba(46, 196, 182, 0.6),
+                  inset 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+      background: #5fd9cd;
+      box-shadow: 0 0 0 4px {{ section.settings.bg_color }},
+                  0 0 0 10px rgba(46, 196, 182, 0),
+                  inset 0 0 6px 2px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  /* BADGE — clignote UNE SEULE FOIS au moment de l'activation */
+  .deos-step__badge {
+    display: inline-block;
+    padding: 12px 26px;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    font-family: var(--font-heading-family, "Assistant"), sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    border-radius: 999px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 14px rgba(46, 196, 182, 0.25);
+    opacity: 0.55;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .deos-step__badge--dark {
+    background: #1f2933;
+    box-shadow: 0 4px 14px rgba(31, 41, 51, 0.25);
+  }
+
+  .deos-step.is-active .deos-step__badge {
+    opacity: 1;
+    transform: translateY(0);
+    animation: deos-badge-blink-once 1.2s ease-out 1 forwards;
+  }
+
+  .deos-step.is-active .deos-step__badge--dark {
+    animation: deos-badge-blink-once-dark 1.2s ease-out 1 forwards;
+  }
+
+  @keyframes deos-badge-blink-once {
+    0% {
+      box-shadow: 0 4px 14px rgba(46, 196, 182, 0.25),
+                  0 0 0 0 rgba(46, 196, 182, 0.7);
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      box-shadow: 0 8px 28px rgba(46, 196, 182, 0.65),
+                  0 0 0 14px rgba(46, 196, 182, 0);
+      transform: translateY(0) scale(1.06);
+    }
+    100% {
+      box-shadow: 0 4px 14px rgba(46, 196, 182, 0.25),
+                  0 0 0 0 rgba(46, 196, 182, 0);
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes deos-badge-blink-once-dark {
+    0% {
+      box-shadow: 0 4px 14px rgba(31, 41, 51, 0.25),
+                  0 0 0 0 rgba(31, 41, 51, 0.7);
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      box-shadow: 0 8px 28px rgba(31, 41, 51, 0.6),
+                  0 0 0 14px rgba(31, 41, 51, 0);
+      transform: translateY(0) scale(1.06);
+    }
+    100% {
+      box-shadow: 0 4px 14px rgba(31, 41, 51, 0.25),
+                  0 0 0 0 rgba(31, 41, 51, 0);
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .deos-step__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .deos-step__list li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 14px;
+    font-family: var(--font-body-family, "Assistant"), sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: {{ section.settings.text_color }};
+    opacity: 0.55;
+    transform: translateX(-6px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .deos-step.is-active .deos-step__list li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .deos-step.is-active .deos-step__list li:nth-child(1) { transition-delay: 0.1s; }
+  .deos-step.is-active .deos-step__list li:nth-child(2) { transition-delay: 0.2s; }
+  .deos-step.is-active .deos-step__list li:nth-child(3) { transition-delay: 0.3s; }
+  .deos-step.is-active .deos-step__list li:nth-child(4) { transition-delay: 0.4s; }
+
+  .deos-step__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 14px;
+    height: 8px;
+    border-left: 2px solid {{ section.settings.accent_color }};
+    border-bottom: 2px solid {{ section.settings.accent_color }};
+    transform: rotate(-45deg);
+  }
+
+  /* CTA */
+  .deos-cta-wrap {
+    text-align: center;
+    margin-top: 56px;
+  }
+
+  .deos-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 44px;
+    background: linear-gradient(135deg, {{ section.settings.accent_color }} 0%, #1ba89c 100%);
+    color: #fff;
+    font-family: var(--font-heading-family, "Assistant"), sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(46, 196, 182, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .deos-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(46, 196, 182, 0.45);
+  }
+
+  .deos-cta__arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .deos-cta:hover .deos-cta__arrow {
+    transform: translateX(4px);
+  }
+
+  .deos-guarantee {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    font-family: var(--font-body-family, "Assistant"), sans-serif;
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    opacity: 0.7;
+  }
+
+  .deos-guarantee svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .deos-parcours {
+      padding: 60px 0;
+    }
+    .deos-step__badge {
+      font-size: 13px;
+      padding: 10px 20px;
+    }
+    .deos-step__list li {
+      font-size: 15px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .deos-step.is-active .deos-step__badge,
+    .deos-step.is-active .deos-step__dot {
+      animation: none;
+    }
+    .deos-timeline__progress {
+      transition: none;
+    }
+  }
+</style>
+
+<section class="deos-parcours" data-deos-parcours>
+  <div class="deos-parcours__inner">
+
+    <div class="deos-parcours__header">
+      <h2 class="deos-parcours__title">
+        {{ section.settings.title }}
+      </h2>
+      <p class="deos-parcours__intro">
+        {{ section.settings.intro }}
+      </p>
+    </div>
+
+    <div class="deos-timeline" data-deos-timeline>
+      <div class="deos-timeline__progress" data-deos-progress></div>
+
+      {%- for block in section.blocks -%}
+        <div class="deos-step" data-deos-step {{ block.shopify_attributes }}>
+          <span class="deos-step__dot"></span>
+          <span class="deos-step_badge {% if block.settings.badge_style == 'dark' %}deos-step_badge--dark{% endif %}">
+            {{ block.settings.badge_text }}
+          </span>
+          <ul class="deos-step__list">
+            {%- assign items = block.settings.items | newline_to_br | split: '<br />' -%}
+            {%- for item in items -%}
+              {%- assign clean = item | strip -%}
+              {%- if clean != blank -%}
+                <li>{{ clean }}</li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.cta_text != blank -%}
+      <div class="deos-cta-wrap">
+        <a href="{{ section.settings.cta_link }}" class="deos-cta">
+          {{ section.settings.cta_text }}
+          <span class="deos-cta__arrow">→</span>
+        </a>
+        {%- if section.settings.guarantee_text != blank -%}
+          <div>
+            <span class="deos-guarantee">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+              {{ section.settings.guarantee_text }}
+            </span>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+  (function() {
+    document.querySelectorAll('[data-deos-parcours]').forEach(function(section) {
+      var timeline = section.querySelector('[data-deos-timeline]');
+      var progress = section.querySelector('[data-deos-progress]');
+      var steps = section.querySelectorAll('[data-deos-step]');
+      if (!timeline || !progress || !steps.length) return;
+
+      function updateProgress() {
+        var rect = timeline.getBoundingClientRect();
+        var viewportH = window.innerHeight || document.documentElement.clientHeight;
+        var triggerLine = viewportH * 0.55;
+
+        var distance = triggerLine - rect.top;
+        var maxHeight = rect.height;
+        var height = Math.max(0, Math.min(maxHeight, distance));
+        progress.style.height = height + 'px';
+
+        steps.forEach(function(step) {
+          var dot = step.querySelector('.deos-step__dot');
+          if (!dot) return;
+          var dotRect = dot.getBoundingClientRect();
+          var dotCenter = dotRect.top + dotRect.height / 2;
+
+          if (dotCenter <= triggerLine) {
+            step.classList.add('is-active');
+          } else {
+            step.classList.remove('is-active');
+          }
+        });
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updateProgress();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      updateProgress();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "DEOS Parcours Fraîcheur",
+  "tag": "section",
+  "class": "section-deos-parcours",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Votre parcours de fraîcheur avec DEOS®"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Texte d'introduction",
+      "default": "DEOS® agit de l'intérieur vers l'extérieur : les résultats se manifestent progressivement, et non instantanément. Voici ce que la plupart des clients constatent après avoir commencé une utilisation quotidienne :"
+    },
+    {
+      "type": "header",
+      "content": "Appel à l'action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texte du bouton",
+      "default": "Commencez mon voyage"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Texte de garantie",
+      "default": "Garantie de remboursement de 30 jours"
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Arrière-plan",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#0d1b2a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#2d3748"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur d'accent",
+      "default": "#2ec4b6"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espacement haut",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espacement bas",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Titre du badge",
+          "default": "Semaine 1 : Le changement subtil"
+        },
+        {
+          "type": "select",
+          "id": "badge_style",
+          "label": "Style du badge",
+          "options": [
+            { "value": "accent", "label": "Couleur d'accent" },
+            { "value": "dark", "label": "Foncé" }
+          ],
+          "default": "accent"
+        },
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Liste (une ligne par item)",
+          "default": "Vous remarquerez peut-être d'abord que votre haleine est plus fraîche.\nL'intensité de l'odeur corporelle commence à s'atténuer.\nL'odeur de la salle de bain commence à diminuer."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "DEOS Parcours Fraîcheur",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "badge_text": "Semaine 1 : Le changement subtil",
+            "badge_style": "accent",
+            "items": "Vous remarquerez peut-être d'abord que votre haleine est plus fraîche.\nL'intensité de l'odeur corporelle commence à s'atténuer – elle n'a pas encore disparu, mais elle est différente.\nL'odeur de la salle de bain commence à diminuer."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "badge_text": "Semaine 2 : La différence est bien réelle",
+            "badge_style": "accent",
+            "items": "L'odeur corporelle est nettement plus légère/minimale tout au long de la journée.\nL'haleine reste fraîche plus longtemps, même après avoir pris un café ou mangé.\nLes personnes les plus proches de vous commencent à remarquer l'amélioration avant vous."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "badge_text": "Semaine 3 : La confiance s'installe",
+            "badge_style": "accent",
+            "items": "Fraîcheur toute la journée – corps et haleine.\nZones problématiques – pieds, aisselles, parties intimes – réduction significative.\nTu cesses de penser à ton odeur."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "badge_text": "Semaine 4 et suivantes : La nouvelle normalité",
+            "badge_style": "accent",
+            "items": "Fraîcheur corporelle et haleine constante, toute la journée.\nLa plupart des clients disent avoir remplacé leur ancien déodorant.\nLes résultats restent stables tant que vous respectez les horaires quotidiens."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
