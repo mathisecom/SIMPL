@@ -241,6 +241,14 @@
             "review_text": "Produit incroyable !",
             "author_name": "Tamika R."
           }
+        },
+        "review_bamitt": {
+          "type": "review",
+          "settings": {
+            "score": "4.9",
+            "review_text": "Produit incroyable !",
+            "author_name": "Tamika R."
+          }
         }
       },
       "block_order": [
@@ -255,7 +263,8 @@
         "photo_UwywMG",
         "review_QeEXzC",
         "review_z8bnyp",
-        "review_wx9x9L"
+        "review_wx9x9L",
+        "review_bamitt"
       ],
       "name": "Témoignages clients",
       "settings": {
