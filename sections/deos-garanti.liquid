@@ -1,0 +1,416 @@
+{%- comment -%}
+  Section "Essai sans risque 30 jours"
+  Compatible avec le thème Shopify Shrine
+  À placer dans : sections/deos-garantie.liquid
+{%- endcomment -%}
+
+<style>
+  .deos-garantie {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg_color }};
+    overflow: hidden;
+  }
+
+  .deos-garantie__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* COLONNE GAUCHE */
+  .deos-garantie__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* BADGE SCEAU */
+  .deos-garantie__badge {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 28px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .deos-garantie__badge svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .deos-garantie__badge-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .deos-garantie__badge-number {
+    font-family: var(--font-heading-family, "Assistant"), serif;
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .deos-garantie__badge-label {
+    font-family: var(--font-heading-family, "Assistant"), sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* EYEBROW */
+  .deos-garantie__eyebrow {
+    font-family: var(--font-heading-family, "Assistant"), sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    margin: 0 0 14px;
+  }
+
+  /* TITRE */
+  .deos-garantie__title {
+    font-family: var(--font-heading-family, "Assistant"), serif;
+    font-weight: 800;
+    font-size: clamp(26px, 3vw, 42px);
+    line-height: 1.15;
+    color: {{ section.settings.title_color }};
+    margin: 0 0 20px;
+  }
+
+  /* TEXTE */
+  .deos-garantie__text {
+    font-family: var(--font-body-family, "Assistant"), sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: {{ section.settings.text_color }};
+    opacity: 0.8;
+    max-width: 460px;
+    margin: 0 0 36px;
+  }
+
+  /* CTA */
+  .deos-garantie__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 44px;
+    background: linear-gradient(135deg, {{ section.settings.accent_color }} 0%, #1ba89c 100%);
+    color: #fff;
+    font-family: var(--font-heading-family, "Assistant"), sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(46, 196, 182, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .deos-garantie__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(46, 196, 182, 0.45);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .deos-garantie__cta-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .deos-garantie_cta:hover .deos-garantie_cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* COLONNE DROITE — IMAGE */
+  .deos-garantie__image-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .deos-garantie__image-wrap img {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-radius: 12px;
+  }
+
+  /* ===== RESPONSIVE MOBILE ===== */
+  @media (max-width: 860px) {
+    .deos-garantie__inner {
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+      gap: 40px;
+    }
+
+    /* L'image passe en dessous */
+    .deos-garantie__image-wrap {
+      order: 2;
+    }
+
+    .deos-garantie__content {
+      order: 1;
+      padding: 0 4px;
+    }
+
+    .deos-garantie__badge {
+      width: 90px;
+      height: 90px;
+    }
+
+    .deos-garantie__badge-number {
+      font-size: 28px;
+    }
+
+    .deos-garantie__title {
+      font-size: clamp(22px, 6vw, 32px);
+    }
+
+    .deos-garantie__text {
+      font-size: 15px;
+      max-width: 100%;
+    }
+
+    .deos-garantie__cta {
+      width: 100%;
+      justify-content: center;
+      padding: 17px 24px;
+      font-size: 14px;
+      white-space: normal;
+      text-align: center;
+    }
+
+    .deos-garantie__image-wrap img {
+      border-radius: 12px;
+      max-width: 100%;
+    }
+  }
+</style>
+
+<section class="deos-garantie">
+  <div class="deos-garantie__inner">
+
+    <!-- GAUCHE : contenu -->
+    <div class="deos-garantie__content">
+
+      <div class="deos-garantie__badge">
+        <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="
+            M55 4
+            L61.5 14.5
+            L73.5 10
+            L76.5 22.5
+            L89 22.5
+            L88 35
+            L100 39.5
+            L95 51
+            L104 59
+            L96 68
+            L101 80
+            L89 81.5
+            L86 94
+            L74 91.5
+            L67 103
+            L55 98
+            L43 103
+            L36 91.5
+            L24 94
+            L21 81.5
+            L9 80
+            L14 68
+            L6 59
+            L15 51
+            L10 39.5
+            L22 35
+            L21 22.5
+            L33.5 22.5
+            L36.5 10
+            L48.5 14.5
+            Z
+          " fill="{{ section.settings.accent_color }}"/>
+        </svg>
+        <div class="deos-garantie__badge-text">
+          <span class="deos-garantie__badge-number">{{ section.settings.badge_number }}</span>
+          <span class="deos-garantie__badge-label">{{ section.settings.badge_label }}</span>
+        </div>
+      </div>
+
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="deos-garantie__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h2 class="deos-garantie__title">{{ section.settings.title }}</h2>
+
+      {%- if section.settings.text != blank -%}
+        <p class="deos-garantie__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.cta_text != blank -%}
+        <a href="{{ section.settings.cta_link }}" class="deos-garantie__cta">
+          {{ section.settings.cta_text }}
+          <span class="deos-garantie__cta-arrow">→</span>
+        </a>
+      {%- endif -%}
+
+    </div>
+
+    <!-- DROITE : image -->
+    {%- if section.settings.image != blank -%}
+      <div class="deos-garantie__image-wrap">
+        {{
+          section.settings.image
+          | image_url: width: 1000
+          | image_tag:
+            loading: 'lazy',
+            alt: section.settings.title
+        }}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "DEOS Garantie 30 jours",
+  "tag": "section",
+  "class": "section-deos-garantie",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_number",
+      "label": "Chiffre du badge",
+      "default": "30"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Label sous le chiffre",
+      "default": "JOURS"
+    },
+    {
+      "type": "header",
+      "content": "Textes"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Texte au-dessus du titre",
+      "default": "RESSENTEZ LA DIFFÉRENCE"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Essai sans risque de 30 jours"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte descriptif",
+      "default": "Si vous ne constatez aucune différence significative au niveau de votre odeur corporelle, de votre haleine ou de votre fraîcheur générale dans les 30 jours, nous vous rembourserons intégralement, sans poser de questions."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texte du bouton",
+      "default": "ESSAYEZ SANS RISQUE AUJOURD'HUI"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Photo (côté droit)"
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Arrière-plan",
+      "default": "#f5f0eb"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#0d1b2a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#2d3748"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur d'accent",
+      "default": "#2ec4b6"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espacement haut",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espacement bas",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "DEOS Garantie 30 jours"
+    }
+  ]
+}
+{% endschema %}
