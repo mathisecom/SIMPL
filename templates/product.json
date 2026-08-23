@@ -15,7 +15,7 @@
         "liquid_FFq7jK": {
           "type": "liquid",
           "settings": {
-            "liquid": ""
+            "liquid": "<div style=\"display:flex; align-items:center; font-family:Arial, sans-serif; font-size:12px; color:#000; font-weight:600;\">\n  \n  <!-- Texte -->\n  <span style=\"margin-right:8px;\">Excellent</span>\n  \n  <!-- Étoiles -->\n  <div style=\"display:flex; margin-right:8px;\">\n    <img src=\"https://cdn.trustpilot.net/brand-assets/4.3.0/stars/stars-5.svg\" \n         alt=\"5 étoiles Trustpilot\" \n         style=\"height:18px;\"/>\n  </div>\n  \n  <!-- Nombre d'avis -->\n  <span style=\"margin-right:8px;\">1232 avis sur</span>\n  \n  <!-- Logo Trustpilot -->\n  <img src=\"https://cdn.trustpilot.net/brand-assets/4.3.0/logo-black.svg\" \n       alt=\"Trustpilot\" \n       style=\"height:18px;\"/>\n</div>"
           }
         },
         "title": {
