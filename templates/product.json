@@ -217,10 +217,74 @@
         "photo_height": 230,
         "photo_speed": 80
       }
+    },
+    "logo_list_F7EGHG": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_jyEkfn": {
+          "type": "logo",
+          "settings": {
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_MEBwCT": {
+          "type": "logo",
+          "settings": {
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_HppFbU": {
+          "type": "logo",
+          "settings": {
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_wGjk8N": {
+          "type": "logo",
+          "settings": {
+            "logo_width": 120,
+            "link": ""
+          }
+        },
+        "logo_hUfMUi": {
+          "type": "logo",
+          "settings": {
+            "logo_width": 120,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_jyEkfn",
+        "logo_MEBwCT",
+        "logo_HppFbU",
+        "logo_wGjk8N",
+        "logo_hUfMUi"
+      ],
+      "name": "Logo list",
+      "settings": {
+        "full_width": true,
+        "stack_mobile": true,
+        "title": "Logo list",
+        "content": "",
+        "text_alignment": "start",
+        "items_per_row": 5,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "logo_item_background": "",
+        "logo_item_border": ""
+      }
     }
   },
   "order": [
     "main",
-    "temoignages_clients_pFyLzT"
+    "temoignages_clients_pFyLzT",
+    "logo_list_F7EGHG"
   ]
 }
