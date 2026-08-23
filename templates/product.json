@@ -375,7 +375,7 @@
         "text_color": "#2d3748",
         "accent_color": "#2ec4b6",
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 0
       }
     }
   },
