@@ -116,9 +116,82 @@
         "input_background": "rgba(0,0,0,0)",
         "input_text_color": ""
       }
+    },
+    "temoignages_clients_pFyLzT": {
+      "type": "temoignages-clients",
+      "blocks": {
+        "photo_Y4keNy": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo_apeV4n": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo_kKyMrY": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo_j6qVdX": {
+          "type": "photo",
+          "settings": {}
+        },
+        "photo_eQED9c": {
+          "type": "photo",
+          "settings": {}
+        },
+        "review_QeEXzC": {
+          "type": "review",
+          "settings": {
+            "score": "4.9",
+            "review_text": "Produit incroyable !",
+            "author_name": "Tamika R."
+          }
+        },
+        "review_z8bnyp": {
+          "type": "review",
+          "settings": {
+            "score": "4.9",
+            "review_text": "Produit incroyable !",
+            "author_name": "Tamika R."
+          }
+        },
+        "review_wx9x9L": {
+          "type": "review",
+          "settings": {
+            "score": "4.9",
+            "review_text": "Produit incroyable !",
+            "author_name": "Tamika R."
+          }
+        }
+      },
+      "block_order": [
+        "photo_Y4keNy",
+        "photo_apeV4n",
+        "photo_kKyMrY",
+        "photo_j6qVdX",
+        "photo_eQED9c",
+        "review_QeEXzC",
+        "review_z8bnyp",
+        "review_wx9x9L"
+      ],
+      "name": "Témoignages clients",
+      "settings": {
+        "background_color": "#f5f0e8",
+        "accent_color": "#00b5ad",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "title_line1": "Des histoires vraies,",
+        "title_line2": "des résultats concrets",
+        "subtitle": "Découvrez ce que nos clients disent de DEOS®",
+        "photo_width": 180,
+        "photo_height": 230,
+        "photo_speed": 80
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "temoignages_clients_pFyLzT"
   ]
 }
