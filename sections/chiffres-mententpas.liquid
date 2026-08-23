@@ -1,0 +1,298 @@
+{% comment %}
+  Section: Chiffres clés avec animation
+  Thème: Shrine (Shopify)
+{% endcomment %}
+
+<style>
+  .stats {
+    background: radial-gradient(ellipse at center, #1a3a35 0%, #0d1f1c 50%, #080f0e 100%);
+    padding: {{ section.settings.padding_top }}px 40px {{ section.settings.padding_bottom }}px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
+
+  .stats__header {
+    margin-bottom: 60px;
+  }
+
+  .stats__title {
+    font-size: clamp(24px, 3.5vw, 42px);
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+
+  .stats__subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+  }
+
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+  }
+
+  .stats__number {
+    font-size: clamp(40px, 5vw, 70px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .stats__desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 280px;
+  }
+
+  .stats__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .stats__btn {
+    display: inline-block;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .stats__btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+
+  .stats__guarantee {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+  }
+
+  .stats__guarantee svg { flex-shrink: 0; }
+
+  @media (max-width: 768px) {
+    .stats { padding: 50px 24px 50px; }
+    .stats__grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+
+<section class="stats" id="stats-{{ section.id }}">
+
+  <div class="stats__header">
+    <h2 class="stats__title">{{ section.settings.title }}</h2>
+    {% if section.settings.subtitle != blank %}
+      <p class="stats__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <div class="stats__grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'stat' %}
+        <div class="stats__item">
+          <span
+            class="stats__number"
+            data-target="{{ block.settings.number }}"
+            data-suffix="{{ block.settings.suffix }}"
+          >0{{ block.settings.suffix }}</span>
+          <p class="stats__desc">{{ block.settings.description }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="stats__cta">
+    {% if section.settings.btn_label != blank and section.settings.btn_url != blank %}
+      <a class="stats__btn" href="{{ section.settings.btn_url }}">
+        {{ section.settings.btn_label }} →
+      </a>
+    {% endif %}
+    {% if section.settings.guarantee != blank %}
+      <div class="stats__guarantee">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        {{ section.settings.guarantee }}
+      </div>
+    {% endif %}
+  </div>
+
+</section>
+
+<script>
+(function() {
+  var section = document.getElementById('stats-{{ section.id }}');
+  if (!section) return;
+
+  var numbers  = section.querySelectorAll('.stats__number[data-target]');
+  var animated = false;
+
+  function animateNumber(el) {
+    var target   = parseInt(el.getAttribute('data-target'));
+    var suffix   = el.getAttribute('data-suffix') || '';
+    var duration = 1800;
+    var start    = null;
+
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var ease     = 1 - Math.pow(1 - progress, 3);
+      var current  = Math.round(ease * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  function onVisible(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        numbers.forEach(function(el) { animateNumber(el); });
+      }
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(onVisible, { threshold: 0.3 });
+    observer.observe(section);
+  } else {
+    numbers.forEach(function(el) { animateNumber(el); });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Chiffres clés",
+  "tag": "section",
+  "class": "stats-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur bouton",
+      "default": "#00b5ad"
+    },
+    {
+      "type": "header",
+      "content": "Espacement"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding haut (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bas (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Textes"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Les chiffres ne mentent pas."
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Nous avons interrogé des milliers de clients DEOS®. Voici ce qu'ils nous ont dit :"
+    },
+    {
+      "type": "header",
+      "content": "Bouton"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Texte du bouton",
+      "default": "ESSAYEZ SANS RISQUE AUJOURD'HUI"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "text",
+      "id": "guarantee",
+      "label": "Texte garantie",
+      "default": "Garantie de remboursement de 30 jours"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Chiffre",
+      "settings": [
+        {
+          "type": "range",
+          "id": "number",
+          "label": "Chiffre",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 94
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffixe (ex: %)",
+          "default": "%"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Ils ont déclaré que leur odeur corporelle avait sensiblement diminué après avoir utilisé DEOS® régulièrement pendant plus de 2 semaines."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Chiffres clés",
+      "blocks": [
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" }
+      ]
+    }
+  ]
+}
+{% endschema %}
