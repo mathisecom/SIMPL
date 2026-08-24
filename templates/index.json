@@ -37,6 +37,7 @@
       "block_order": [
         "image_FifpRw"
       ],
+      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "full_width": true,
