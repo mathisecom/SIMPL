@@ -74,7 +74,7 @@
             "show_payment_button": false,
             "show_gift_card_recipient": true,
             "atc_button_background": "",
-            "atc_button_text_color": "#FFFFFF",
+            "atc_button_text_color": "#ffffff",
             "payment_button_background": "",
             "payment_button_text_color": ""
           }
@@ -343,6 +343,7 @@
         "reason_rt33dx": {
           "type": "reason",
           "settings": {
+            "image": "shopify://shop_images/gempages_512618958591886248-a403aa82-5e9b-43a5-b23e-604076eae712.webp",
             "image_position": "center center",
             "number": "",
             "badge": "",
@@ -356,6 +357,7 @@
         "reason_kPCttp": {
           "type": "reason",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_12_aout_2026_17_25_19_3.png",
             "image_position": "center center",
             "number": "",
             "badge": "",
@@ -369,6 +371,7 @@
         "reason_y3Cw43": {
           "type": "reason",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_12_aout_2026_17_25_19_2.png",
             "image_position": "center center",
             "number": "",
             "badge": "",
@@ -382,6 +385,7 @@
         "reason_tBVLn3": {
           "type": "reason",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_12_aout_2026_17_25_34.png",
             "image_position": "center center",
             "number": "",
             "badge": "",
