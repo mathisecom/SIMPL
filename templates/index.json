@@ -15,8 +15,7 @@
         "image_FifpRw": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/BANNER_PC_30.jpg",
-            "mobile_image": "shopify://shop_images/BANNER_MOBILE_-_2026-08-12T172020.505.jpg",
+            "image": "shopify://shop_images/ChatGPT_Image_25_aout_2026_00_06_27.png",
             "content_max_width": 780,
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
@@ -38,7 +37,6 @@
       "block_order": [
         "image_FifpRw"
       ],
-      "disabled": true,
       "name": "Slideshow",
       "settings": {
         "full_width": true,
