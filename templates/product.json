@@ -287,6 +287,48 @@
         "photo_speed": 80
       }
     },
+    "images_with_text_scrolling_974hJq": {
+      "type": "images-with-text-scrolling",
+      "blocks": {
+        "item_AHqQMM": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/HookGirlsAreCrazyAbout3-ezgif.com-video-to-webp-converter_853369d2-2ee1-4eea-9459-3da5cc2384ec.webp",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Heading 1",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "item_UQhAwy": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/giphy_1.webp",
+            "icon": "none",
+            "icon_width": 48,
+            "title": "Heading 2",
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_AHqQMM",
+        "item_UQhAwy"
+      ],
+      "name": "Images and text scrolling",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": false,
+        "show_counter": true,
+        "desktop_image_effect": "reveal",
+        "image_position": "end",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
     "timelin_parcour_pBHWce": {
       "type": "timelin-parcour",
       "blocks": {
@@ -519,6 +561,7 @@
   "order": [
     "main",
     "temoignages_clients_pFyLzT",
+    "images_with_text_scrolling_974hJq",
     "timelin_parcour_pBHWce",
     "raisonsimpl_zg83x9",
     "chiffres_mententpas_QciYDx",
