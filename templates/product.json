@@ -81,7 +81,7 @@
           "settings": {
             "show_payment_button": false,
             "show_gift_card_recipient": true,
-            "atc_button_background": "#FFDF5D",
+            "atc_button_background": "#ffdf5d",
             "atc_button_text_color": "#000000",
             "payment_button_background": "",
             "payment_button_text_color": ""
@@ -376,7 +376,7 @@
       "name": "DEOS Parcours Fraîcheur",
       "settings": {
         "title": "Votre parcours de fraîcheur avec SIMPL®",
-        "intro": "DEOS® agit de l'intérieur vers l'extérieur : les résultats se manifestent progressivement, et non instantanément. Voici ce que la plupart des clients constatent après avoir commencé une utilisation quotidienne :",
+        "intro": "SIMPL® agit de l'intérieur vers l'extérieur : les résultats se manifestent progressivement, et non instantanément. Voici ce que la plupart des clients constatent après avoir commencé une utilisation quotidienne :",
         "cta_text": "Commencez mon voyage",
         "cta_link": "shopify://products/boxers-en-bambou-original-simpl",
         "guarantee_text": "Garantie de remboursement de 30 jours",
